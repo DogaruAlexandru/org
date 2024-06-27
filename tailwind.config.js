@@ -16,7 +16,8 @@ module.exports = {
         bg: '#ffe5d9',
         band: '#f4acb7',
         text: '#685057',
-        my_blue: "#bae6fd"
+        my_blue: "#bae6fd",
+        new_blue: "#ebf8fe",
       },
     },
   },
