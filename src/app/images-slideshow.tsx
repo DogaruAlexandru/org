@@ -41,11 +41,12 @@ function Slideshow() {
     <div
       ref={parentRef}
       id="default-carousel"
-      className="relative bg-my_blue mx-12 shadow-lg"
+      className="relative bg-my_blue mx-12 shadow-lg py-2"
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
       <div className="flex flex-row">
+        {/* Left */}
         <div
           className={`relative h-56 overflow-hidden rounded-lg md:h-96 flex-1 ${
             parentWidth < 600 ? 'hidden' : ''
@@ -68,6 +69,7 @@ function Slideshow() {
             </div>
           ))}
         </div>
+        {/* Middle */}
         <div className="relative h-56 overflow-hidden rounded-lg md:h-96 flex-1">
           {images.map((img, index) => (
             <div
@@ -84,6 +86,7 @@ function Slideshow() {
             </div>
           ))}
         </div>
+        {/* Right */}
         <div
           className={`relative h-56 overflow-hidden rounded-lg md:h-96 flex-1 ${
             parentWidth < 600 ? 'hidden' : ''
