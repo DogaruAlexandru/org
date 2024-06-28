@@ -10,6 +10,8 @@ module.exports = {
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
+  mode: 'jit',
+  darkMode: false,
   theme: {
     extend: {
       colors: {
@@ -18,6 +20,7 @@ module.exports = {
         text: '#685057',
         my_blue: "#bae6fd",
         new_blue: "#ebf8fe",
+        border: "#7c6ca6",
       },
       fontFamily: {
         'dancing-script': ['"Dancing Script"', 'cursive'],
@@ -25,5 +28,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };

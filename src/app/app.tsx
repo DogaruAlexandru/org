@@ -2,6 +2,7 @@ import Invitaion from './invitaion';
 import Title from './title';
 import Slideshow from './images-slideshow';
 import Details from './details';
+import Form from './form';
 
 export function App() {
   return (
@@ -11,6 +12,7 @@ export function App() {
       <Slideshow />
       <Invitaion />
       <Details />
+      <Form />
     </div>
   );
 }
