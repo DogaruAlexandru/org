@@ -19,6 +19,10 @@ module.exports = {
         my_blue: "#bae6fd",
         new_blue: "#ebf8fe",
       },
+      fontFamily: {
+        'dancing-script': ['"Dancing Script"', 'cursive'],
+        'playwrite': ['"Playwrite IT Moderna"', 'sans-serif'],
+      },
     },
   },
   plugins: [],
