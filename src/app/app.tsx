@@ -1,8 +1,8 @@
-import Invitaion from './invitaion';
-import Title from './title';
-import Slideshow from './images-slideshow';
-import Details from './details';
-import Form from './form';
+import Invitaion from './components/invitaion';
+import Title from './components/title';
+import Slideshow from './components/images-slideshow';
+import Details from './components/details';
+import Form from './components/form';
 
 export function App() {
   return (
