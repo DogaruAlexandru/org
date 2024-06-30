@@ -1,4 +1,5 @@
-import sign from '../assets/images/location-sign.svg';
+import React from 'react';
+import DetailsSection from './details-section';
 
 function Details() {
   return (
@@ -9,120 +10,27 @@ function Details() {
       <h1 className="text-4xl">Details</h1>
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
-        <table className="m-2 ">
-          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
-            <thead>
-              <tr>
-                <th colSpan={2} className="text-3xl">
-                  Civil wedding ceremony
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-left text-xl">
-              <tr>
-                <td>Date:</td>
-                <td>25th of June 2022</td>
-              </tr>
-              <tr>
-                <td>Time:</td>
-                <td>11:00 am</td>
-              </tr>
-              <tr>
-                <td>Location:</td>
-                <td className="flex flex-row">
-                  <>City Hall</>
-                  <button
-                    className="hover:scale-125 duration-100"
-                    onClick={() =>
-                      window.open(
-                        'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
-                        '_blank'
-                      )
-                    }
-                  >
-                    <img src={sign} className="w-5 h-5 ms-2 mt-1" alt="..." />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </div>
-        </table>
-        <table className="m-2">
-          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
-            <thead>
-              <tr>
-                <th colSpan={2} className="text-3xl">
-                  Religious wedding ceremony
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-left text-xl">
-              <tr>
-                <td>Date:</td>
-                <td>25th of June 2022</td>
-              </tr>
-              <tr>
-                <td>Time:</td>
-                <td>11:00 am</td>
-              </tr>
-              <tr>
-                <td>Location:</td>
-                <td className="flex flex-row">
-                  <>City Hall</>
-                  <button
-                    className="hover:scale-125 duration-100"
-                    onClick={() =>
-                      window.open(
-                        'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
-                        '_blank'
-                      )
-                    }
-                  >
-                    <img src={sign} className="w-5 h-5 ms-2 mt-1" alt="..." />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </div>
-        </table>
-        <table className="m-2">
-          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
-            <thead>
-              <tr>
-                <th colSpan={2} className="text-3xl">
-                  Wedding reception
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-left text-xl">
-              <tr>
-                <td>Date:</td>
-                <td>25th of June 2022</td>
-              </tr>
-              <tr>
-                <td>Time:</td>
-                <td>11:00 am</td>
-              </tr>
-              <tr>
-                <td>Location:</td>
-                <td className="flex flex-row">
-                  <>City Hall</>
-                  <button
-                    className="hover:scale-125 duration-100"
-                    onClick={() =>
-                      window.open(
-                        'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
-                        '_blank'
-                      )
-                    }
-                  >
-                    <img src={sign} className="w-5 h-5 ms-2 mt-1" alt="..." />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </div>
-        </table>
+        <DetailsSection
+          title="Civil wedding ceremony"
+          date="25th of June 2022"
+          time="11:00 am"
+          location="City Hall"
+          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
+        />
+        <DetailsSection
+          title="Religious wedding ceremony"
+          date="25th of June 2022"
+          time="1:00 pm"
+          location="St. Patrick's Church"
+          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
+        />
+        <DetailsSection
+          title="Wedding reception"
+          date="25th of June 2022"
+          time="6:00 pm"
+          location="Grand Ballroom"
+          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
+        />
       </div>
     </div>
   );
