@@ -21,8 +21,8 @@ function Form() {
 
   return (
     <div
-      className="bg-bg shadow-lg px-4 py-8 mx-12 rounded-lg border border-text
-     font-dancing-script text-text text-right font-bold text-3xl"
+      className="my-bg-band1 shadow-lg px-4 py-8 mx-12 rounded-lg border border-my_dark 
+      font-dancing-script text-my_dark text-center font-bold text-3xl"
     >
       <form
         action="#"
@@ -43,8 +43,8 @@ function Form() {
                 type="text"
                 autoComplete="name"
                 required
-                className="border-text rounded-lg shadow-sm p-1.5 w-full
-                focus:outline-none focus:border-border focus:ring focus:ring-border
+                className="border-my_dark rounded-lg shadow-sm p-1.5 w-full
+                focus:outline-none focus:border-accent focus:ring focus:ring-accent
                 text-2xl"
               />
             </td>
@@ -58,7 +58,7 @@ function Form() {
             </th>
             <td className="w-1/2 text-left">
               <div className="flex justify-center">
-                <div className="me-4">
+                <div className="me-4 hover:scale-125 duration-100">
                   <label htmlFor="comingYes" className="mr-2">
                     Yes
                   </label>
@@ -69,10 +69,11 @@ function Form() {
                     value="yes"
                     checked={isComing === 'yes'}
                     onChange={handleComingChange}
-                    className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                   />
                 </div>
-                <div>
+                <div className="hover:scale-125 duration-100">
                   <label htmlFor="comingNo" className="mr-2">
                     No
                   </label>
@@ -83,7 +84,8 @@ function Form() {
                     value="no"
                     checked={isComing === 'no'}
                     onChange={handleComingChange}
-                    className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                   />
                 </div>
               </div>
@@ -100,7 +102,7 @@ function Form() {
                 </th>
                 <td className="w-1/2 text-left">
                   <div className="flex justify-center">
-                    <div className="me-4">
+                    <div className="me-4 hover:scale-125 duration-100">
                       <label htmlFor="accompaniedYes" className="mr-2">
                         Yes
                       </label>
@@ -111,10 +113,11 @@ function Form() {
                         value="yes"
                         checked={accompanied === 'yes'}
                         onChange={handleAccompaniedChange}
-                        className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                        className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                        focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                       />
                     </div>
-                    <div>
+                    <div className="hover:scale-125 duration-100">
                       <label htmlFor="accompaniedNo" className="mr-2">
                         No
                       </label>
@@ -125,7 +128,8 @@ function Form() {
                         value="no"
                         checked={accompanied === 'no'}
                         onChange={handleAccompaniedChange}
-                        className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                        className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                        focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                       />
                     </div>
                   </div>
@@ -140,7 +144,7 @@ function Form() {
                 </th>
                 <td className="w-1/2 text-left">
                   <div className="flex justify-center">
-                    <div className="me-4">
+                    <div className="me-4 hover:scale-125 duration-100">
                       <label htmlFor="menuYes" className="mr-2">
                         Yes
                       </label>
@@ -151,10 +155,11 @@ function Form() {
                         value="yes"
                         checked={menu === 'yes'}
                         onChange={handleMenuChange}
-                        className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                        className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                        focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                       />
                     </div>
-                    <div>
+                    <div className="hover:scale-125 duration-100">
                       <label htmlFor="menuNo" className="mr-2">
                         No
                       </label>
@@ -165,7 +170,8 @@ function Form() {
                         value="no"
                         checked={menu === 'no'}
                         onChange={handleMenuChange}
-                        className="border-text text-border rounded-md w-6 h-6 shadow-sm focus:outline-none focus:border-border focus:ring focus:ring-border"
+                        className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
+                        focus:outline-none focus:border-accent focus:ring focus:ring-accent"
                       />
                     </div>
                   </div>
@@ -178,7 +184,8 @@ function Form() {
         <div className="flex justify-center mt-6">
           <button
             type="submit"
-            className="bg-band px-10 py-1 rounded-xl border border-text"
+            className="my-bg-band2 px-10 py-1 rounded-xl border border-my_dark shadow-lg
+            hover-bg-band2 hover:text-white hover:scale-110 duration-100"
           >
             Send
           </button>

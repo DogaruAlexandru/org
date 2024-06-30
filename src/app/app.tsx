@@ -6,7 +6,7 @@ import Form from './form';
 
 export function App() {
   return (
-    <div className="py-12 bg-new_blue px-32 space-y-4">
+    <div className="py-12 bg-bg px-32 space-y-4">
       {/* <NxWelcome title="org" /> */}
       <Title />
       <Slideshow />

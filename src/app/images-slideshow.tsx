@@ -41,7 +41,7 @@ function Slideshow() {
     <div
       ref={parentRef}
       id="default-carousel"
-      className="relative bg-my_blue mx-12 rounded-lg shadow-lg py-2 border border-text"
+      className="relative my-bg-band3 mx-12 rounded-lg shadow-lg p-2 border border-my_dark"
       data-carousel="slide"
     >
       {/* Carousel wrapper */}

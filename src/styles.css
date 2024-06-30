@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
+
+.my-bg-band1 {
+    @apply bg-gradient-to-tr from-band1-dark via-band1 to-band1-light;
+}
+
+.my-bg-band2 {
+    @apply bg-gradient-to-tr from-band2-dark via-band2 to-band2-light;
+}
+
+.hover-bg-band2:hover {
+    @apply bg-gradient-to-tr from-accent-dark via-accent to-accent-light;
+}
+
+.my-bg-band3 {
+    @apply bg-gradient-to-tr from-band3-dark via-band3 to-band3-light;
+}
+

@@ -3,14 +3,14 @@ import sign from '../assets/images/location-sign.svg';
 function Details() {
   return (
     <div
-      className="bg-band shadow-lg p-8 mx-12 rounded-lg border border-text
-      font-dancing-script text-center text-text font-bold"
+      className="my-bg-band2 shadow-lg p-8 mx-12 rounded-lg border border-my_dark
+      font-dancing-script text-center text-my_dark font-bold"
     >
       <h1 className="text-4xl">Details</h1>
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
         <table className="m-2 ">
-          <div className="bg-bg shadow-lg p-6 rounded-lg border border-text">
+          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
             <thead>
               <tr>
                 <th colSpan={2} className="text-3xl">
@@ -32,6 +32,7 @@ function Details() {
                 <td className="flex flex-row">
                   <>City Hall</>
                   <button
+                    className="hover:scale-125 duration-100"
                     onClick={() =>
                       window.open(
                         'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
@@ -47,7 +48,7 @@ function Details() {
           </div>
         </table>
         <table className="m-2">
-          <div className="bg-bg shadow-lg p-6 rounded-lg border border-text">
+          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
             <thead>
               <tr>
                 <th colSpan={2} className="text-3xl">
@@ -69,6 +70,7 @@ function Details() {
                 <td className="flex flex-row">
                   <>City Hall</>
                   <button
+                    className="hover:scale-125 duration-100"
                     onClick={() =>
                       window.open(
                         'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
@@ -84,7 +86,7 @@ function Details() {
           </div>
         </table>
         <table className="m-2">
-          <div className="bg-bg shadow-lg p-6 rounded-lg border border-text">
+          <div className="my-bg-band1 shadow-lg p-6 rounded-lg border border-my_dark">
             <thead>
               <tr>
                 <th colSpan={2} className="text-3xl">
@@ -106,6 +108,7 @@ function Details() {
                 <td className="flex flex-row">
                   <>City Hall</>
                   <button
+                    className="hover:scale-125 duration-100"
                     onClick={() =>
                       window.open(
                         'https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7',
