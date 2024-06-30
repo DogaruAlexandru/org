@@ -38,7 +38,7 @@ function DetailsSection({
             <td className="flex flex-row">
               {location}
               <button
-                className="hover:scale-125 duration-100"
+                className="hover:scale-150 duration-100"
                 onClick={() => window.open(mapLink, '_blank')}
               >
                 <img
