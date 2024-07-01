@@ -6,7 +6,7 @@ import flower from '../../assets/images/flower-solid-svgrepo-com.svg';
 function Details() {
   return (
     <div
-      className="my-bg-band2 shadow-lg p-8 mx-12 rounded-lg border border-my_dark
+      className="my-bg-band2 shadow-lg p-8 rounded-lg border border-my_dark
       font-dancing-script text-center text-my_dark font-bold"
     >
       <h1 className="text-4xl flex justify-center">

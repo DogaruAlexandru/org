@@ -21,7 +21,7 @@ function Form() {
 
   return (
     <div
-      className="my-bg-band1 shadow-lg px-4 py-8 mx-12 rounded-lg border border-my_dark 
+      className="my-bg-band1 shadow-lg px-4 py-8 rounded-lg border border-my_dark 
       font-dancing-script text-my_dark text-center font-bold text-3xl"
     >
       <form

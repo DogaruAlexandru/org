@@ -69,7 +69,7 @@ const Slideshow = () => {
     <div
       ref={parentRef}
       id="default-carousel"
-      className="relative my-bg-band3 mx-12 rounded-lg shadow-lg p-2 border border-my_dark"
+      className="relative my-bg-band3 rounded-lg shadow-lg p-2 border border-my_dark"
       data-carousel="slide"
     >
       <div className="flex flex-row">
