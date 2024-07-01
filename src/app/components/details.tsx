@@ -1,13 +1,19 @@
 import React from 'react';
 import DetailsSection from './details-section';
 
+import flower from '../../assets/images/flower-solid-svgrepo-com.svg';
+
 function Details() {
   return (
     <div
       className="my-bg-band2 shadow-lg p-8 mx-12 rounded-lg border border-my_dark
       font-dancing-script text-center text-my_dark font-bold"
     >
-      <h1 className="text-4xl">Details</h1>
+      <h1 className="text-4xl flex justify-center">
+        <img src={flower} alt="flower" className="w-10 h-10 mr-10" />
+        Details
+        <img src={flower} alt="flower" className="w-10 h-10 ml-10" />
+      </h1>
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
         <DetailsSection
