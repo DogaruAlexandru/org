@@ -13,7 +13,11 @@ const Slide: React.FC<SlideProps> = ({ img, isVisible, alt }) => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <img src={img} className="block w-full h-full object-contain" alt={alt} />
+      <img
+        src={img}
+        className="block w-full h-full object-contain rounded-lg border border-my_dark"
+        alt={alt}
+      />
     </div>
   );
 };
