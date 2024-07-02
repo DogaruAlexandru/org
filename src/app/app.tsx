@@ -7,17 +7,17 @@ import Details from './components/details';
 import Form from './components/form';
 import CreditsButton from './components/credits-button';
 import AudioPlayer from './components/audio-player';
-import withAnimation from './components/with-animation';
+import WithAnimation from './components/with-animation';
 
 import bg_image from '../assets/images/bg.png';
 
 // Wrap your components with the HOC
-const AnimatedTitle = withAnimation(Title);
-const AnimatedSlideshow = withAnimation(Slideshow);
-const AnimatedInvitation = withAnimation(Invitaion);
-const AnimatedDetails = withAnimation(Details);
-const AnimatedForm = withAnimation(Form);
-const AnimatedCreditsButton = withAnimation(CreditsButton);
+const AnimatedTitle = WithAnimation(Title);
+const AnimatedSlideshow = WithAnimation(Slideshow);
+const AnimatedInvitation = WithAnimation(Invitaion);
+const AnimatedDetails = WithAnimation(Details);
+const AnimatedForm = WithAnimation(Form);
+const AnimatedCreditsButton = WithAnimation(CreditsButton);
 
 export function App() {
   return (

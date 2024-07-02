@@ -2,7 +2,7 @@ import React from 'react';
 import AnimatedComponent from './animated-component';
 
 // This is a higher-order component that wraps the given component in an AnimatedComponent
-function withAnimation<T extends {}>(
+function WithAnimation<T extends {}>(
   WrappedComponent: React.ComponentType<T>
 ): React.ComponentType<T> {
   return function WithAnimation(props: T) {
@@ -14,4 +14,4 @@ function withAnimation<T extends {}>(
   };
 }
 
-export default withAnimation;
+export default WithAnimation;
