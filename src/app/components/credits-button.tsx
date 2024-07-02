@@ -17,9 +17,16 @@ function CreditsButton() {
       >
         Show Credits
       </button>
-      {showCredits && (
-        <CreditsSection show={showCredits} setShow={setShowCredits} />
-      )}
+      <div
+        className={`transition-opacity duration-1000 ${
+          showCredits ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ pointerEvents: showCredits ? 'auto' : 'none' }}
+      >
+        {showCredits && (
+          <CreditsSection show={showCredits} setShow={setShowCredits} />
+        )}
+      </div>
     </div>
   );
 }
