@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import Invitaion from './components/invitaion';
 import Title from './components/title';
@@ -6,9 +6,9 @@ import Slideshow from './components/images-slideshow';
 import Details from './components/details';
 import Form from './components/form';
 import CreditsButton from './components/credits-button';
+import AnimatedComponent from './components/animated-component';
 
 import bg_image from '../assets/images/bg.png';
-
 import music from '../assets/amazing-day-iros-young-main-version-18425-02-07.mp3';
 
 export function App() {
@@ -42,12 +42,24 @@ export function App() {
       scroll-smooth h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-accent-dark scrollbar-track-accent-light"
     >
       <audio ref={audioRef} src={music} autoPlay loop />
-      <Title />
-      <Slideshow />
-      <Invitaion />
-      <Details />
-      <Form />
-      <CreditsButton />
+      <AnimatedComponent>
+        <Title />
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <Slideshow />
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <Invitaion />
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <Details />
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <Form />
+      </AnimatedComponent>
+      <AnimatedComponent>
+        <CreditsButton />
+      </AnimatedComponent>
     </div>
   );
 }
