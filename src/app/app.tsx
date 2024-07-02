@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React from 'react';
 
 import Invitaion from './components/invitaion';
 import Title from './components/title';
@@ -6,10 +6,18 @@ import Slideshow from './components/images-slideshow';
 import Details from './components/details';
 import Form from './components/form';
 import CreditsButton from './components/credits-button';
-import AnimatedComponent from './components/animated-component';
 import AudioPlayer from './components/audio-player';
+import withAnimation from './components/with-animation';
 
 import bg_image from '../assets/images/bg.png';
+
+// Wrap your components with the HOC
+const AnimatedTitle = withAnimation(Title);
+const AnimatedSlideshow = withAnimation(Slideshow);
+const AnimatedInvitation = withAnimation(Invitaion);
+const AnimatedDetails = withAnimation(Details);
+const AnimatedForm = withAnimation(Form);
+const AnimatedCreditsButton = withAnimation(CreditsButton);
 
 export function App() {
   return (
@@ -19,24 +27,12 @@ export function App() {
       scroll-smooth h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-accent-dark scrollbar-track-accent-light"
     >
       <AudioPlayer />
-      <AnimatedComponent>
-        <Title />
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <Slideshow />
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <Invitaion />
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <Details />
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <Form />
-      </AnimatedComponent>
-      <AnimatedComponent>
-        <CreditsButton />
-      </AnimatedComponent>
+      <AnimatedTitle />
+      <AnimatedSlideshow />
+      <AnimatedInvitation />
+      <AnimatedDetails />
+      <AnimatedForm />
+      <AnimatedCreditsButton />
     </div>
   );
 }
