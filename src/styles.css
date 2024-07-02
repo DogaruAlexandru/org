@@ -18,4 +18,3 @@
 .my-bg-band3 {
     @apply bg-gradient-to-tr from-band3-dark via-band3 to-band3-light;
 }
-
