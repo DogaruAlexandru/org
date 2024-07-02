@@ -5,23 +5,14 @@ import Title from './components/title';
 import Slideshow from './components/images-slideshow';
 import Details from './components/details';
 import Form from './components/form';
+import CreditsButton from './components/credits-button';
 
 import bg_image from '../assets/images/bg.png';
 
 import music from '../assets/amazing-day-iros-young-main-version-18425-02-07.mp3';
-import CreditsToggleButton from './components/credits-toggle-button';
-import CreditsSection from './components/credits-section';
 
 export function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null); // Add a ref to the bottom element
-  const topRef = useRef<HTMLDivElement>(null); // Add a ref to the top element
-
-  const [isCreditsVisible, setIsCreditsVisible] = useState(false);
-
-  const toggleCredits = () => {
-    setIsCreditsVisible(!isCreditsVisible);
-  };
 
   useEffect(() => {
     if (audioRef.current) {
@@ -44,14 +35,6 @@ export function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (isCreditsVisible && bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to the bottom element
-    } else {
-      topRef.current?.scrollIntoView({ behavior: 'smooth' }); // Scroll to the top element
-    }
-  }, [isCreditsVisible]);
-
   return (
     <div
       style={{ backgroundImage: `url(${bg_image})` }}
@@ -64,10 +47,7 @@ export function App() {
       <Invitaion />
       <Details />
       <Form />
-      <div ref={topRef} /> {/* Add a ref to the top element */}
-      <CreditsToggleButton toggleCredits={toggleCredits} />
-      {isCreditsVisible && <CreditsSection />}
-      <div ref={bottomRef} /> {/* Add a ref to the bottom element */}
+      <CreditsButton />
     </div>
   );
 }
