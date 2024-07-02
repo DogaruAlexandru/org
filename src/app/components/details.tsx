@@ -1,4 +1,3 @@
-import React from 'react';
 import DetailsSection from './details-section';
 
 import flower from '../../assets/images/flower-solid-svgrepo-com.svg';

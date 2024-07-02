@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
+import AudioPlayer from './components/audio-player';
+import CreditsButton from './components/credits-button';
+import Details from './components/details';
+import EnvelopeButton from './components/envelope-button';
+import Form from './components/form';
+import Slideshow from './components/images-slideshow';
 import Invitaion from './components/invitation';
 import Title from './components/title';
-import Slideshow from './components/images-slideshow';
-import Details from './components/details';
-import Form from './components/form';
-import CreditsButton from './components/credits-button';
-import AudioPlayer from './components/audio-player';
 import WithAnimation from './components/with-animation';
-import EnvelopeButton from './components/envelope-button';
 
 import bg_image from '../assets/images/bg.png';
 
@@ -26,7 +26,8 @@ export function App() {
   return (
     <div
       style={{ backgroundImage: `url(${bg_image})` }}
-      className="bg-repeat h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark scrollbar-track-accent-light"
+      className="bg-repeat h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
+      scrollbar-track-accent-light"
     >
       <AudioPlayer />
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import envelope_image from '../../assets/images/envelope.png';
 

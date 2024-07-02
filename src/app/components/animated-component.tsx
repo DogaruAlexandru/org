@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface AnimatedComponentProps {

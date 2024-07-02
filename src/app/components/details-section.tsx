@@ -1,4 +1,3 @@
-import React from 'react';
 import sign from '../../assets/images/location-sign-svgrepo-com.svg';
 
 function DetailsSection({
