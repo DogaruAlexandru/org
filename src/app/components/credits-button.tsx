@@ -18,7 +18,7 @@ function CreditsButton() {
         Show Credits
       </button>
       <div
-        className={`transition-opacity duration-1000 ${
+        className={`transition-opacity duration-300 ${
           showCredits ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ pointerEvents: showCredits ? 'auto' : 'none' }}

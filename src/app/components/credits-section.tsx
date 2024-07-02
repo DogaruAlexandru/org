@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface CreditsSectionProps {
   show: boolean;
@@ -6,17 +6,35 @@ interface CreditsSectionProps {
 }
 
 function CreditsSection({ show, setShow }: CreditsSectionProps) {
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    if (show) {
+      setOpacity(1);
+    }
+  }, [show]);
+
+  const handleClose = () => {
+    setOpacity(0);
+    setTimeout(() => {
+      setShow(false);
+    }, 300); // Match this timeout with the CSS transition duration
+  };
+
   if (!show) {
     return null;
   }
 
-  const handleClose = () => {
-    setShow(false);
-  };
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="my-bg-band3 shadow-lg rounded-lg border-2 border-my_dark text-center text-my_dark">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 
+      z-50 transition-opacity duration-300"
+      style={{ opacity: opacity }}
+    >
+      <div
+        className="my-bg-band3 shadow-lg rounded-lg border-2 border-my_dark text-center 
+      text-my_dark"
+      >
         {/* Modal content */}
         <div className="relative rounded-lg shadow">
           {/* Modal header */}
