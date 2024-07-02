@@ -22,22 +22,6 @@ const AnimatedCreditsButton = WithAnimation(CreditsButton);
 
 export function App() {
   const [showButton, setShowButton] = useState(true);
-  const [buttonOpacity, setButtonOpacity] = useState(1);
-  const [buttonScale, setButtonScale] = useState(1);
-
-  const handleButtonClick = () => {
-    setButtonOpacity(0);
-    setButtonScale(0.9);
-  };
-
-  useEffect(() => {
-    if (buttonOpacity === 0) {
-      const timeoutId = setTimeout(() => {
-        setShowButton(false);
-      }, 300);
-      return () => clearTimeout(timeoutId);
-    }
-  }, [buttonOpacity]);
 
   return (
     <div
@@ -47,11 +31,7 @@ export function App() {
       <AudioPlayer />
 
       {showButton && (
-        <EnvelopeButton
-          buttonOpacity={buttonOpacity}
-          buttonScale={buttonScale}
-          handleButtonClick={handleButtonClick}
-        />
+        <EnvelopeButton showButton={showButton} setShowButton={setShowButton} />
       )}
 
       {!showButton && (
