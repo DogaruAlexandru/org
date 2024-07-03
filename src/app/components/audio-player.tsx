@@ -49,11 +49,30 @@ const AudioPlayer = () => {
         }
       };
 
+      const handleVisibilityChange = () => {
+        if (document.hidden) {
+          if (audioRef.current) {
+            audioRef.current.pause();
+          }
+        } else {
+          if (audioRef.current && isPlaying) {
+            audioRef.current.play().catch((error) => {
+              console.error('Failed to resume audio:', error);
+            });
+          }
+        }
+      };
+
       document.addEventListener('click', handlePlay);
+      document.addEventListener('visibilitychange', handleVisibilityChange);
       audioRef.current.addEventListener('timeupdate', handleLoop);
 
       return () => {
         document.removeEventListener('click', handlePlay);
+        document.removeEventListener(
+          'visibilitychange',
+          handleVisibilityChange
+        );
         if (audioRef.current) {
           audioRef.current.removeEventListener('timeupdate', handleLoop);
         }
