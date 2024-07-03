@@ -31,9 +31,7 @@ export function App() {
     >
       <AudioPlayer />
 
-      {showButton && (
-        <EnvelopeButton showButton={showButton} setShowButton={setShowButton} />
-      )}
+      {showButton && <EnvelopeButton setShowButton={setShowButton} />}
 
       {!showButton && (
         <div className="py-12 px-32 space-y-6">
