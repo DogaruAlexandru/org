@@ -30,7 +30,7 @@ function EnvelopeButton({ showButton, setShowButton }: EnvelopeButtonProps) {
         }}
       >
         <button
-          className="w-2/3 h-2/3 flex justify-center items-center overflow-hidden hover:scale-110 duration-100"
+          className="w-2/3 h-2/3 flex justify-center items-center overflow-hidden hover:scale-110 duration-300"
           onClick={handleClick}
         >
           <img

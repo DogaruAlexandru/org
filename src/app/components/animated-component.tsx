@@ -34,13 +34,13 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children }) => {
     if (inView) {
       controls.start({
         opacity: 1,
-        y: 0,
+        x: 0,
         transition: { duration: 0.6 },
       });
     } else {
       controls.start({
         opacity: 0,
-        y: scrollDirection === 'up' ? 50 : -50,
+        x: scrollDirection === 'up' ? -50 : 50,
         transition: { duration: 0.6 },
       });
     }
@@ -49,7 +49,7 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: scrollDirection === 'down' ? 50 : -50 }}
+      initial={{ opacity: 0, x: scrollDirection === 'down' ? 50 : -50 }}
       animate={controls}
     >
       {children}
