@@ -34,17 +34,13 @@ function DetailsSection({
           </tr>
           <tr>
             <td>Location:</td>
-            <td className="flex flex-row">
+            <td className="flex flex-row items-center">
               {location}
               <button
-                className="hover:scale-150 duration-100"
+                className="hover:scale-150 duration-100 ml-2 flex-shrink-0"
                 onClick={() => window.open(mapLink, '_blank')}
               >
-                <img
-                  src={sign}
-                  className="w-5 h-5 ms-2 mt-1"
-                  alt="Location sign"
-                />
+                <img src={sign} className="w-5 h-5" alt="Location sign" />
               </button>
             </td>
           </tr>

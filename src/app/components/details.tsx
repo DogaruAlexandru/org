@@ -8,10 +8,18 @@ function Details() {
       className="my-bg-band2 shadow-lg p-8 rounded-lg border border-my_dark
       font-dancing-script text-center text-my_dark font-bold"
     >
-      <h1 className="text-4xl flex justify-center">
-        <img src={flower} alt="flower" className="w-10 h-10 mr-10" />
+      <h1 className="text-4xl flex justify-center items-center">
+        <img
+          src={flower}
+          alt="flower"
+          className="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 lg:w-16 lg:h-16 lg:mr-8"
+        />
         Details
-        <img src={flower} alt="flower" className="w-10 h-10 ml-10" />
+        <img
+          src={flower}
+          alt="flower"
+          className="w-6 h-6 ml-2 sm:w-10 sm:h-10 sm:ml-4 lg:w-16 lg:h-16 lg:ml-8"
+        />
       </h1>
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
