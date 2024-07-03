@@ -7,8 +7,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "reset": "npx nx reset",
     "predeploy": "npx nx build org",
-    "deploy": "gh-pages -d dist/org"
+    "deploy": "gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
