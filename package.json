@@ -8,7 +8,7 @@
     "build": "nx build",
     "test": "nx test",
     "predeploy": "npx nx build org",
-    "deploy": "gh-pages -d dist/org"
+    "deploy": "gh-pages -d docs"
   },
   "private": true,
   "dependencies": {
