@@ -2,10 +2,12 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://dogarualexandru.github.io/org",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "deploy": "gh-pages -d dist/org"
   },
   "private": true,
   "dependencies": {
