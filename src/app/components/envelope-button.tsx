@@ -33,23 +33,25 @@ function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
 
   return (
     <div
-      className="flex justify-center items-center h-svh envelope-animation"
+      className="flex justify-center items-center h-svh"
       style={{
         opacity: buttonOpacity,
         transform: `scale(${buttonScale})`,
         transition: 'opacity 300ms, transform 300ms',
       }}
     >
-      <button
-        className="w-2/3 h-2/3 flex justify-center items-center overflow-hidden hover:scale-110 duration-300"
-        onClick={handleClick}
-      >
-        <img
-          src={envelope_image}
-          alt="Envelope"
-          className="w-full h-full object-contain"
-        />
-      </button>
+      <div className="envelope-animation flex justify-center items-center">
+        <button
+          className="w-2/3 h-2/3 flex justify-center items-center overflow-hidden hover:scale-110 duration-300"
+          onClick={handleClick}
+        >
+          <img
+            src={envelope_image}
+            alt="Envelope"
+            className="w-full h-full object-contain"
+          />
+        </button>
+      </div>
     </div>
   );
 }

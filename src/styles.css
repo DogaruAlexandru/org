@@ -38,6 +38,6 @@
   }
   
   .envelope-animation {
-    animation: fadeInOut 2s infinite, rotateLeftRight 1.5s infinite;
+    animation: fadeInOut 2s infinite, rotateLeftRight 1.4s infinite;
   }
   
