@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import AudioPlayer from './components/audio-player';
 import CreditsButton from './components/credits-button';
@@ -23,10 +23,16 @@ const AnimatedCreditsButton = WithAnimation(CreditsButton);
 export function App() {
   const [showButton, setShowButton] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100);
+  }, []);
+
   return (
     <div
       style={{ backgroundImage: `url(${bg_image})` }}
-      className="bg-repeat h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
+      className="bg-repeat h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
       scrollbar-track-accent-light overflow-x-hidden"
     >
       <AudioPlayer />

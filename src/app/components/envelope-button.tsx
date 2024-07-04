@@ -10,6 +10,12 @@ function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
   const [buttonScale, setButtonScale] = useState(1);
 
   useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setButtonOpacity(1);
     }, 100);
@@ -27,7 +33,7 @@ function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
 
   return (
     <div
-      className="flex justify-center items-center h-screen"
+      className="flex justify-center items-center h-svh"
       style={{
         opacity: buttonOpacity,
         transform: `scale(${buttonScale})`,
