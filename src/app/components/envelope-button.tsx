@@ -33,7 +33,7 @@ function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
 
   return (
     <div
-      className="flex justify-center items-center h-svh"
+      className="flex justify-center items-center h-svh envelope-animation"
       style={{
         opacity: buttonOpacity,
         transform: `scale(${buttonScale})`,
