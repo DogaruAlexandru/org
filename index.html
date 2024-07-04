@@ -1,21 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Invitation</title>
-    <base href="/" />
+<head>
+  <meta charset="utf-8" />
+  <title>Invitation</title>
+  <base href="/" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="/org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/org/favicon.ico" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/org/assets/index-DE5rQTfp.js"></script>
-    <link rel="stylesheet" crossorigin href="/org/assets/index-CMzHF2DL.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="data:application/octet-stream;base64,Ly8gaW1wb3J0ICdib290c3RyYXAvZGlzdC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MnOwppbXBvcnQgeyBTdHJpY3RNb2RlIH0gZnJvbSAncmVhY3QnOwppbXBvcnQgKiBhcyBSZWFjdERPTSBmcm9tICdyZWFjdC1kb20vY2xpZW50JzsKCmltcG9ydCBBcHAgZnJvbSAnLi9hcHAvYXBwJzsKCmNvbnN0IHJvb3QgPSBSZWFjdERPTS5jcmVhdGVSb290KAogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyb290JykgYXMgSFRNTEVsZW1lbnQKKTsKcm9vdC5yZW5kZXIoCiAgPFN0cmljdE1vZGU+CiAgICA8QXBwIC8+CiAgPC9TdHJpY3RNb2RlPgopOwo=" as="script">
+
+  <style>
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 9999;
+    }
+  </style>
+  <script type="module" crossorigin src="/org/assets/index-5xEGA0g2.js"></script>
+  <link rel="stylesheet" crossorigin href="/org/assets/index-BWKDJUSj.css">
+</head>
+<body>
+  <div id="loading">Loading...</div>
+  <div id="root" style="display:none;"></div>
+  <script>
+    // Lazy-load images and components if needed
+    document.addEventListener("DOMContentLoaded", function() {
+      const root = document.getElementById('root');
+      const loading = document.getElementById('loading');
+      root.style.display = 'block';
+      loading.style.display = 'none';
+    });
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
 </html>
