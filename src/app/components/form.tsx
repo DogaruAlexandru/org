@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import RadioButtonGroup from './radio-button-group';
 
 function Form() {
   const [isComing, setIsComing] = useState('no');
   const [accompanied, setAccompanied] = useState('no');
   const [menu, setMenu] = useState('no');
+  const [extraMenu, setExtraMenu] = useState('no');
 
   const handleComingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing(event.target.value);
@@ -17,6 +19,12 @@ function Form() {
 
   const handleMenuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu(event.target.value);
+  };
+
+  const handleExtraMenuChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setExtraMenu(event.target.value);
   };
 
   return (
@@ -45,121 +53,53 @@ function Form() {
           />
         </div>
 
-        <div className="flex flex-col items-center mb-4">
-          <label htmlFor="coming" className="w-full">
-            Coming
-          </label>
-          <div className="flex justify-center w-full">
-            <div className="me-4 hover:scale-125 duration-100">
-              <label htmlFor="comingYes" className="mr-2">
-                Yes
-              </label>
-              <input
-                id="comingYes"
-                name="coming"
-                type="radio"
-                value="yes"
-                checked={isComing === 'yes'}
-                onChange={handleComingChange}
-                className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-              />
-            </div>
-            <div className="hover:scale-125 duration-100">
-              <label htmlFor="comingNo" className="mr-2">
-                No
-              </label>
-              <input
-                id="comingNo"
-                name="coming"
-                type="radio"
-                value="no"
-                checked={isComing === 'no'}
-                onChange={handleComingChange}
-                className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-              />
-            </div>
-          </div>
-        </div>
+        <RadioButtonGroup
+          idPrefix="coming"
+          label="Coming"
+          options={[
+            { label: 'Yes', value: 'yes' },
+            { label: 'No', value: 'no' },
+          ]}
+          selectedValue={isComing}
+          onChange={handleComingChange}
+        />
 
         {isComing === 'yes' && (
           <>
-            <div className="flex flex-col items-center mb-4">
-              <label htmlFor="accompanied" className="w-full">
-                Accompanied
-              </label>
-              <div className="flex justify-center w-full">
-                <div className="me-4 hover:scale-125 duration-100">
-                  <label htmlFor="accompaniedYes" className="mr-2">
-                    Yes
-                  </label>
-                  <input
-                    id="accompaniedYes"
-                    name="accompanied"
-                    type="radio"
-                    value="yes"
-                    checked={accompanied === 'yes'}
-                    onChange={handleAccompaniedChange}
-                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-                  />
-                </div>
-                <div className="hover:scale-125 duration-100">
-                  <label htmlFor="accompaniedNo" className="mr-2">
-                    No
-                  </label>
-                  <input
-                    id="accompaniedNo"
-                    name="accompanied"
-                    type="radio"
-                    value="no"
-                    checked={accompanied === 'no'}
-                    onChange={handleAccompaniedChange}
-                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-                  />
-                </div>
-              </div>
-            </div>
+            <RadioButtonGroup
+              idPrefix="menu"
+              label="Vegan menu"
+              options={[
+                { label: 'Yes', value: 'yes' },
+                { label: 'No', value: 'no' },
+              ]}
+              selectedValue={menu}
+              onChange={handleMenuChange}
+            />
 
-            <div className="flex flex-col items-center mb-4">
-              <label htmlFor="menu" className="w-full">
-                Vegan menu
-              </label>
-              <div className="flex justify-center w-full">
-                <div className="me-4 hover:scale-125 duration-100">
-                  <label htmlFor="menuYes" className="mr-2">
-                    Yes
-                  </label>
-                  <input
-                    id="menuYes"
-                    name="menu"
-                    type="radio"
-                    value="yes"
-                    checked={menu === 'yes'}
-                    onChange={handleMenuChange}
-                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-                  />
-                </div>
-                <div className="hover:scale-125 duration-100">
-                  <label htmlFor="menuNo" className="mr-2">
-                    No
-                  </label>
-                  <input
-                    id="menuNo"
-                    name="menu"
-                    type="radio"
-                    value="no"
-                    checked={menu === 'no'}
-                    onChange={handleMenuChange}
-                    className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
-                    focus:outline-none focus:border-accent focus:ring focus:ring-accent"
-                  />
-                </div>
-              </div>
-            </div>
+            <RadioButtonGroup
+              idPrefix="accompanied"
+              label="Accompanied"
+              options={[
+                { label: 'Yes', value: 'yes' },
+                { label: 'No', value: 'no' },
+              ]}
+              selectedValue={accompanied}
+              onChange={handleAccompaniedChange}
+            />
+
+            {accompanied === 'yes' && (
+              <RadioButtonGroup
+                idPrefix="extraMenu"
+                label="Vegan menu for your guest"
+                options={[
+                  { label: 'Yes', value: 'yes' },
+                  { label: 'No', value: 'no' },
+                ]}
+                selectedValue={extraMenu}
+                onChange={handleExtraMenuChange}
+              />
+            )}
           </>
         )}
 
