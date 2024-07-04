@@ -6,7 +6,7 @@ import Details from './components/details';
 import EnvelopeButton from './components/envelope-button';
 import Form from './components/form';
 import Slideshow from './components/images-slideshow';
-import Invitaion from './components/invitation';
+import Invitation from './components/invitation';
 import Title from './components/title';
 import WithAnimation from './components/with-animation';
 
@@ -15,7 +15,7 @@ import bg_image from '../assets/images/bg.png';
 // Wrap your components with the HOC
 const AnimatedTitle = WithAnimation(Title);
 const AnimatedSlideshow = WithAnimation(Slideshow);
-const AnimatedInvitation = WithAnimation(Invitaion);
+const AnimatedInvitation = WithAnimation(Invitation);
 const AnimatedDetails = WithAnimation(Details);
 const AnimatedForm = WithAnimation(Form);
 const AnimatedCreditsButton = WithAnimation(CreditsButton);
@@ -40,7 +40,7 @@ export function App() {
       {showButton && <EnvelopeButton setShowButton={setShowButton} />}
 
       {!showButton && (
-        <div className="space-y-6 py-2 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
+        <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
           <AnimatedTitle />
           <AnimatedSlideshow />
           <AnimatedInvitation />
