@@ -1,2 +1,0 @@
-import{j as e}from"./index-5xEGA0g2.js";function r(){return e.jsxs("div",{className:`my-bg-band1 shadow-lg px-4 py-8 rounded-lg border border-my_dark\r
-      font-dancing-script text-center text-my_dark font-bold text-3xl`,children:[e.jsx("p",{children:"We are delighted to invite you to our wedding celebration."}),e.jsx("p",{children:"Your presence would mean the world to us as we celebrate our love and commitment to each other."})]})}export{r as default};
