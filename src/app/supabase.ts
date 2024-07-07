@@ -16,7 +16,7 @@ async function fetchValuesById(id: string) {
     return null;
   }
 
-  return data;
+  return data ? data[0] : null;
 }
 
 // Write values at an ID
@@ -28,7 +28,7 @@ async function writeValues(
   accompanied: boolean,
   extraVegan: boolean
 ) {
-  const { data, error } = await supabase.rpc('update_form_by_id', {
+  const response = await supabase.rpc('update_form_by_id', {
     row_id: id,
     new_name: name,
     new_coming: coming,
@@ -37,12 +37,12 @@ async function writeValues(
     new_extra_vegan: extraVegan,
   });
 
-  if (error) {
-    console.error('Error writing values:', error);
-    return null;
+  if (response.error) {
+    console.error('Error writing values:', response);
+    return false;
   }
 
-  return data;
+  return true;
 }
 
 export { supabase, fetchValuesById, writeValues };

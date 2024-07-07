@@ -45,7 +45,7 @@ export function App() {
           <AnimatedSlideshow />
           <AnimatedInvitation />
           <AnimatedDetails />
-          <AnimatedForm />
+          <AnimatedForm id={'21a23ac1-be5d-460e-855c-22f107285ff4'} />
           <AnimatedCreditsButton />
         </div>
       )}
