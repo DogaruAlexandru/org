@@ -1,4 +1,4 @@
-import sign from '../../assets/images/location-sign-svgrepo-com.svg';
+import sign from '../../../assets/images/location-sign-svgrepo-com.svg';
 
 function DetailsSection({
   title,

@@ -1,6 +1,6 @@
 import DetailsSection from './details-section';
 
-import flower from '../../assets/images/flower-solid-svgrepo-com.svg';
+import flower from '../../../assets/images/flower-solid-svgrepo-com.svg';
 
 function Details() {
   return (

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import AudioPlayer from './components/audio-player';
-import CreditsButton from './components/credits-button';
-import Details from './components/details';
+import CreditsButton from './components/credits/credits-button';
+import Details from './components/details/details';
 import EnvelopeButton from './components/envelope-button';
-import Form from './components/form';
-import Slideshow from './components/images-slideshow';
+import Form from './components/form/form';
+import Slideshow from './components/image-slider/images-slideshow';
 import Invitation from './components/invitation';
 import Title from './components/title';
-import WithAnimation from './components/with-animation';
+import WithAnimation from './components/animations/with-animation';
 
 import bg_image from '../assets/images/bg.png';
 

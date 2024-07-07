@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import music from '../../assets/amazing-day-iros-young-main-version-18425-02-07.mp3';
+import music from '../../assets/sounds/amazing-day-iros-young-main-version-18425-02-07.mp3';
 
 const MAX_VOLUME = 0.3;
 const VOLUME_INCREMENT = 0.01;
