@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import envelope_image from '../../assets/images/envelope.png';
-import { View } from '../../app/app';
+import { View } from './invitation-page';
 
 interface EnvelopeButtonProps {
   setView: (view: View) => void;
