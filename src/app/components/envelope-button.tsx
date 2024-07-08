@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import envelope_image from '../../assets/images/envelope.png';
+import { View } from '../../app/app';
 
 interface EnvelopeButtonProps {
-  setShowButton: (show: boolean) => void;
+  setView: (view: View) => void;
 }
 
-function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
+function EnvelopeButton({ setView }: EnvelopeButtonProps) {
   const [buttonOpacity, setButtonOpacity] = useState(0);
   const [buttonScale, setButtonScale] = useState(1);
 
@@ -27,7 +28,7 @@ function EnvelopeButton({ setShowButton }: EnvelopeButtonProps) {
     setButtonOpacity(0);
     setButtonScale(0.9);
     setTimeout(() => {
-      setShowButton(false);
+      setView(View.Main);
     }, 300);
   };
 

@@ -3,34 +3,16 @@ import RadioButtonGroup from './radio-button-group';
 import { fetchValuesById, writeValues } from '../../supabase';
 
 interface FormProps {
-  id: string;
+  data: any;
 }
 
-const Form: React.FC<FormProps> = ({ id }) => {
-  const [name, setName] = useState('');
-  const [isComing, setIsComing] = useState('no');
-  const [menu, setMenu] = useState('no');
-  const [accompanied, setAccompanied] = useState('no');
-  const [extraMenu, setExtraMenu] = useState('no');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let result = await fetchValuesById(id);
-        if (result) {
-          setName(result.name || '');
-          setIsComing(result.coming ? 'yes' : 'no');
-          setAccompanied(result.accompanied ? 'yes' : 'no');
-          setMenu(result.vegan ? 'yes' : 'no');
-          setExtraMenu(result.extra_vegan ? 'yes' : 'no');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [id]);
+const Form: React.FC<FormProps> = ({ data }) => {
+  const id = data.id;
+  const name = data.name;
+  const [isComing, setIsComing] = useState(data.coming ? 'yes' : 'no');
+  const [menu, setMenu] = useState(data.accompanied ? 'yes' : 'no');
+  const [accompanied, setAccompanied] = useState(data.vegan ? 'yes' : 'no');
+  const [extraMenu, setExtraMenu] = useState(data.extra_vegan ? 'yes' : 'no');
 
   const handleComingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing(event.target.value);
@@ -52,15 +34,10 @@ const Form: React.FC<FormProps> = ({ id }) => {
     setExtraMenu(event.target.value);
   };
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
-
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const success = await writeValues(
       id,
-      name,
       isComing === 'yes',
       menu === 'yes',
       accompanied === 'yes',
@@ -89,7 +66,6 @@ const Form: React.FC<FormProps> = ({ id }) => {
             required
             disabled={true}
             value={name}
-            onChange={handleNameChange}
             className="border-my_dark rounded-lg shadow-sm p-1.5 w-1/2 hover:scale-110 duration-100
             focus:outline-none focus:border-accent focus:ring focus:ring-accent
             text-2xl"

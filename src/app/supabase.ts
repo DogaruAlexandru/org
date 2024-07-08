@@ -22,7 +22,6 @@ async function fetchValuesById(id: string) {
 // Write values at an ID
 async function writeValues(
   id: string,
-  name: string,
   coming: boolean,
   vegan: boolean,
   accompanied: boolean,
@@ -30,7 +29,6 @@ async function writeValues(
 ) {
   const response = await supabase.rpc('update_form_by_id', {
     row_id: id,
-    new_name: name,
     new_coming: coming,
     new_vegan: vegan,
     new_accompanied: accompanied,

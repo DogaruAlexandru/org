@@ -2,8 +2,8 @@ import React from 'react';
 
 enum NotificationType {
   Loading,
-  Success,
-  Error,
+  LoadingSuccess,
+  LoadingError,
   SaveInProgress,
   SaveSuccess,
   SaveError,
@@ -93,7 +93,7 @@ const Notification: React.FC<NotificationProps> = ({
   return (
     <div
       className={`${bgColor} ${textColor} shadow-lg px-4 py-8 rounded-lg border border-my_dark 
-      font-dancing-script text-center font-bold text-5xl flex justify-center items-center`}
+      font-dancing-script text-center font-bold text-5xl flex justify-center items-center flex-wrap`}
     >
       {children}
     </div>
@@ -106,9 +106,9 @@ const NotificationSelector: React.FC<{ type: NotificationType }> = ({
   switch (type) {
     case NotificationType.Loading:
       return <LoadingNotification />;
-    case NotificationType.Success:
+    case NotificationType.LoadingSuccess:
       return <SuccessNotification />;
-    case NotificationType.Error:
+    case NotificationType.LoadingError:
       return <ErrorNotification />;
     case NotificationType.SaveInProgress:
       return <SaveInProgressNotification />;

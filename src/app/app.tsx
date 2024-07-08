@@ -14,7 +14,16 @@ import {
   NotificationType,
 } from './components/notification';
 
+import { fetchValuesById } from './supabase';
+
 import bg_image from '../assets/images/bg.png';
+
+export enum View {
+  Loading,
+  LoadingError,
+  Envelope,
+  Main,
+}
 
 // Wrap your components with the HOC
 const AnimatedTitle = WithAnimation(Title);
@@ -25,13 +34,66 @@ const AnimatedForm = WithAnimation(Form);
 const AnimatedCreditsButton = WithAnimation(CreditsButton);
 
 export function App() {
-  const [showButton, setShowButton] = useState(true);
+  const id = '21a23ac1-be5d-460e-855c-22f107285ff4';
+
+  const [view, setView] = useState(View.Loading);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let data = await fetchValuesById(id);
+        if (data) {
+          setData(data);
+          console.log('Data fetched:', data);
+          setView(View.Envelope);
+        } else {
+          setView(View.LoadingError);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setView(View.LoadingError);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  const renderContent = () => {
+    return (
+      <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
+        {(() => {
+          switch (view) {
+            case View.Loading:
+              return <NotificationSelector type={NotificationType.Loading} />;
+            case View.LoadingError:
+              return (
+                <NotificationSelector type={NotificationType.LoadingError} />
+              );
+            case View.Main:
+              return (
+                <>
+                  <AnimatedTitle />
+                  <AnimatedSlideshow />
+                  <AnimatedInvitation />
+                  <AnimatedDetails />
+                  <AnimatedForm data={data} />
+                  <AnimatedCreditsButton />
+                </>
+              );
+            default:
+              return null;
+          }
+        })()}
+      </div>
+    );
+  };
 
   return (
     <div
@@ -41,17 +103,10 @@ export function App() {
     >
       <AudioPlayer />
 
-      {showButton && <EnvelopeButton setShowButton={setShowButton} />}
-
-      {!showButton && (
-        <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
-          <AnimatedTitle />
-          <AnimatedSlideshow />
-          <AnimatedInvitation />
-          <AnimatedDetails />
-          <AnimatedForm id={'21a23ac1-be5d-460e-855c-22f107285ff4'} />
-          <AnimatedCreditsButton />
-        </div>
+      {view === View.Envelope ? (
+        <EnvelopeButton setView={setView} />
+      ) : (
+        renderContent()
       )}
     </div>
   );
