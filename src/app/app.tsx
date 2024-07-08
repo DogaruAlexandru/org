@@ -5,7 +5,6 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import HomePage from './components/home-page';
 import {
   NotificationSelector,
   NotificationType,
