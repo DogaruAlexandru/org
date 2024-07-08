@@ -12,7 +12,6 @@ const Form: React.FC<FormProps> = ({ id }) => {
   const [menu, setMenu] = useState('no');
   const [accompanied, setAccompanied] = useState('no');
   const [extraMenu, setExtraMenu] = useState('no');
-  const [notification, setNotification] = useState({ message: '', type: '' });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,14 +66,6 @@ const Form: React.FC<FormProps> = ({ id }) => {
       accompanied === 'yes',
       extraMenu === 'yes'
     );
-    if (success === false) {
-      setNotification({ message: 'Data not saved.', type: 'error' });
-    } else {
-      setNotification({ message: 'Data saved.', type: 'success' });
-    }
-    setTimeout(() => {
-      setNotification({ message: '', type: '' });
-    }, 3000);
   };
 
   return (
@@ -82,17 +73,6 @@ const Form: React.FC<FormProps> = ({ id }) => {
       className="my-bg-band1 shadow-lg px-4 py-8 rounded-lg border border-my_dark 
       font-dancing-script text-my_dark text-center font-bold text-3xl"
     >
-      {notification.message && (
-        <div
-          className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-md shadow-lg ${
-            notification.type === 'success'
-              ? 'bg-green-500 text-white'
-              : 'bg-red-500 text-white'
-          }`}
-        >
-          {notification.message}
-        </div>
-      )}
       <form
         onSubmit={handleSubmit}
         className="flex flex-col place-content-center text-center"

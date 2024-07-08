@@ -9,6 +9,10 @@ import Slideshow from './components/image-slider/images-slideshow';
 import Invitation from './components/invitation';
 import Title from './components/title';
 import WithAnimation from './components/animations/with-animation';
+import {
+  NotificationSelector,
+  NotificationType,
+} from './components/notification';
 
 import bg_image from '../assets/images/bg.png';
 
