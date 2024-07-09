@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; URL=./">
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=/" />
+  <script>
+    sessionStorage.redirect = location.pathname + location.search;
+  </script>
 </head>
 <body>
+  If you are not redirected, <a href="/">click here</a>.
 </body>
 </html>
