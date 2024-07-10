@@ -19,6 +19,18 @@
     @apply bg-gradient-to-tr from-band3-dark via-band3 to-band3-light;
 }
 
+.my-green-grd {
+    @apply bg-gradient-to-tr from-green-700 via-green-600 to-green-400;
+}
+
+.my-red-grd {
+    @apply bg-gradient-to-tr from-red-700 via-red-600 to-red-400;
+}
+
+.my-gray-grd {
+    @apply bg-gradient-to-tr from-gray-600 via-gray-400 to-gray-200;
+}
+
 @keyframes fadeInOut {
     0%, 100% {
       opacity: 0.7;

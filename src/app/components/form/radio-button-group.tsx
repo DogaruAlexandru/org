@@ -5,6 +5,7 @@ interface RadioButtonGroupProps {
   label: string;
   options: { label: string; value: string }[];
   selectedValue: string;
+  canModify: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -13,6 +14,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   label,
   options,
   selectedValue,
+  canModify,
   onChange,
 }) => {
   return (
@@ -30,6 +32,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
               type="radio"
               value={option.value}
               checked={selectedValue === option.value}
+              disabled={!canModify}
               onChange={onChange}
               className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
               focus:outline-none focus:border-accent focus:ring focus:ring-accent"

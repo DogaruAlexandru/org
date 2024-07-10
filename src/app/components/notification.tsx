@@ -28,7 +28,7 @@ const LoadingNotification: React.FC = () => {
   }, []);
 
   return (
-    <Notification bgColor="bg-gray-500" textColor="text-white">
+    <Notification bgColor="my-gray-grd" textColor="text-white">
       Loading data
       <div className="w-1">{Array(points).fill('.').join('')}</div>
     </Notification>
@@ -37,7 +37,7 @@ const LoadingNotification: React.FC = () => {
 
 const SuccessNotification: React.FC = () => {
   return (
-    <Notification bgColor="bg-green-600" textColor="text-white">
+    <Notification bgColor="my-green-grd" textColor="text-white">
       Data loaded successfully.
     </Notification>
   );
@@ -45,7 +45,7 @@ const SuccessNotification: React.FC = () => {
 
 const ErrorNotification: React.FC = () => {
   return (
-    <Notification bgColor="bg-red-600" textColor="text-white">
+    <Notification bgColor="my-red-grd" textColor="text-white">
       Failed to load data.
     </Notification>
   );
@@ -63,7 +63,7 @@ const SaveInProgressNotification: React.FC = () => {
   }, []);
 
   return (
-    <Notification bgColor="bg-gray-500" textColor="text-white">
+    <Notification bgColor="my-gray-grd" textColor="text-white">
       Saving data
       <div className="w-1">{Array(points).fill('.').join('')}</div>
     </Notification>
@@ -72,7 +72,7 @@ const SaveInProgressNotification: React.FC = () => {
 
 const SaveSuccessNotification: React.FC = () => {
   return (
-    <Notification bgColor="bg-green-600" textColor="text-white">
+    <Notification bgColor="my-green-grd" textColor="text-white">
       Data saved successfully.
     </Notification>
   );
@@ -80,7 +80,7 @@ const SaveSuccessNotification: React.FC = () => {
 
 const SaveErrorNotification: React.FC = () => {
   return (
-    <Notification bgColor="bg-red-600" textColor="text-white">
+    <Notification bgColor="my-red-grd" textColor="text-white">
       Failed to save data.
     </Notification>
   );
@@ -92,11 +92,11 @@ const WrongUrlNotification: React.FC = () => {
   return (
     <div
       className="bg-repeat h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
-      scrollbar-track-accent-light overflow-x-hidden
+      scrollbar-track-accent-light overflow-x-hidden text-3xl
       space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32"
       style={{ backgroundImage: `url(${bg_image})` }}
     >
-      <Notification bgColor="bg-gray-400" textColor="text-white">
+      <Notification bgColor="my-gray-grd" textColor="text-white">
         <h1>Welcome to the Wedding Invitation Site</h1>
         <p>
           Please use the correct invitation link to access the invitation page.
@@ -114,7 +114,7 @@ const Notification: React.FC<NotificationProps> = ({
   return (
     <div
       className={`${bgColor} ${textColor} shadow-lg px-4 py-8 rounded-lg border border-my_dark 
-      font-dancing-script text-center font-bold text-5xl flex justify-center items-center flex-wrap`}
+      font-dancing-script text-center font-bold text-3xl flex justify-center items-center flex-wrap`}
     >
       {children}
     </div>
