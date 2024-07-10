@@ -105,18 +105,14 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 <label htmlFor="name" className="w-full">
                   Name
                 </label>
-                <input
+                <div
                   id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  disabled={true}
-                  value={name}
-                  className="border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
-                  focus:outline-none focus:border-accent focus:ring focus:ring-accent
-                  text-2xl w-full sm:w-3/4 lg:w-1/2"
-                />
+                  className="rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
+                  text-2xl w-full sm:w-3/4 lg:w-1/2 whitespace-pre-wrap word-wrap-break-word
+                  border border-my_dark bg-white"
+                >
+                  {name}
+                </div>
               </div>
 
               <RadioButtonGroup
