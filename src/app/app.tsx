@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, // Changed from BrowserRouter to HashRouter
   Routes,
   Route,
   Navigate,
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/org/:id" element={<InvitationPage />} />
+        <Route path="/:id" element={<InvitationPage />} />
         <Route
           path="/"
           element={<NotificationSelector type={NotificationType.WrongUrl} />}

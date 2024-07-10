@@ -95,7 +95,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
         return (
           <div
             className="my-bg-band1 shadow-lg px-4 py-8 rounded-lg border border-my_dark 
-          font-dancing-script text-my_dark text-center font-bold text-3xl"
+            font-dancing-script text-my_dark text-center font-bold text-3xl"
           >
             <form
               onSubmit={handleSubmit}
@@ -103,7 +103,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
             >
               <div className="flex flex-col items-center mb-4">
                 <label htmlFor="name" className="w-full">
-                  Full Name
+                  Name
                 </label>
                 <input
                   id="name"
@@ -113,9 +113,9 @@ const Form: React.FC<FormProps> = ({ data }) => {
                   required
                   disabled={true}
                   value={name}
-                  className="border-my_dark rounded-lg shadow-sm p-1.5 w-1/2 hover:scale-110 duration-100
-                focus:outline-none focus:border-accent focus:ring focus:ring-accent
-                text-2xl"
+                  className="border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
+                  focus:outline-none focus:border-accent focus:ring focus:ring-accent
+                  text-2xl w-full sm:w-3/4 lg:w-1/2"
                 />
               </div>
 
@@ -173,7 +173,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 <button
                   type="submit"
                   className="my-bg-band2 px-10 py-1 rounded-xl border border-my_dark shadow-lg
-                hover-bg-band2 hover:text-white hover:scale-110 duration-100"
+                  hover-bg-band2 hover:text-white hover:scale-110 duration-100"
                 >
                   Save
                 </button>
