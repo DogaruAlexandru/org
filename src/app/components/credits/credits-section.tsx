@@ -39,7 +39,7 @@ function CreditsSection({ show, setShow }: CreditsSectionProps) {
         <div className="relative rounded-lg shadow">
           {/* Modal header */}
           <div className="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
-            <h3 className="text-xl font-semibold">Credits</h3>
+            <h3 className="text-xl font-semibold">Credite</h3>
             <button
               type="button"
               className="text-my_dark hover:text-white bg-transparent hover-bg-band2
@@ -71,11 +71,14 @@ function CreditsSection({ show, setShow }: CreditsSectionProps) {
               rel="noopener noreferrer"
               className="text-base leading-relaxed hover:underline"
             >
-              Music provided by: <strong>Iros Young</strong> -{' '}
+              Muzică oferită de: <strong>Iros Young</strong> -{' '}
               <em>Amazing Day</em>
             </a>
             <p className="text-base leading-relaxed">
-              Site created by: <strong>Your Name or Company</strong>
+              Site creat de:{' '}
+              <span className="font-semibold">
+                dogaru.d.alexandru@gmail.com
+              </span>
             </p>
           </div>
         </div>
