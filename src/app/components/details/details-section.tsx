@@ -25,15 +25,15 @@ function DetailsSection({
         </thead>
         <tbody className="text-left text-xl">
           <tr>
-            <td>Date:</td>
+            <td>Dată:</td>
             <td>{date}</td>
           </tr>
           <tr>
-            <td>Time:</td>
+            <td>Oră:</td>
             <td>{time}</td>
           </tr>
           <tr>
-            <td>Location:</td>
+            <td>Locație:</td>
             <td className="flex flex-row items-center">
               {location}
               <button

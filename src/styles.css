@@ -49,7 +49,10 @@
     }
   }
   
-  .envelope-animation {
+  /* .envelope-animation {
     animation: fadeInOut 2s infinite, rotateLeftRight 1.4s infinite;
-  }
+  } */
   
+  .envelope-animation {
+    animation: rotateLeftRight 1.4s infinite;
+  }

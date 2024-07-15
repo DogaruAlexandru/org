@@ -14,7 +14,7 @@ function Details() {
           alt="flower"
           className="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 lg:w-16 lg:h-16 lg:mr-8"
         />
-        Details
+        Detalii
         <img
           src={flower}
           alt="flower"
@@ -24,25 +24,25 @@ function Details() {
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
         <DetailsSection
-          title="Civil wedding ceremony"
-          date="25th of June 2022"
-          time="11:00 am"
-          location="City Hall"
+          title="Cununia civilă"
+          date="22 Februarie 2025"
+          time="10:00"
+          location="Primăria Brașov"
           mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
         />
         <DetailsSection
-          title="Religious wedding ceremony"
-          date="25th of June 2022"
-          time="1:00 pm"
-          location="St. Patrick's Church"
-          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
+          title="Cununia religioasă"
+          date="22 Februarie 2025"
+          time="12:00"
+          location="TBD"
+          mapLink=""
         />
         <DetailsSection
-          title="Wedding reception"
-          date="25th of June 2022"
-          time="6:00 pm"
-          location="Grand Ballroom"
-          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
+          title="Sărbătorirea evenimentului"
+          date="22 Februarie 2025"
+          time="15:00"
+          location="Trei Stejari"
+          mapLink="https://maps.app.goo.gl/rXaXLJ2k8xM6Durw7"
         />
       </div>
     </div>
