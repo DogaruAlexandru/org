@@ -39,10 +39,10 @@ const FormSingle: React.FC<FormSingleProps> = ({ data, canModify }) => {
 
       <RadioButtonGroup
         idPrefix="coming"
-        label=""
+        label="Vin"
         options={[
-          { label: 'Vin', value: 'yes' },
-          { label: 'Nu vin', value: 'no' },
+          { label: 'Da', value: 'yes' },
+          { label: 'Nu', value: 'no' },
         ]}
         selectedValue={isComing}
         canModify={canModify}

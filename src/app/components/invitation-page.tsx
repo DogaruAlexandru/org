@@ -47,9 +47,10 @@ export function InvitationPage() {
   useEffect(() => {
     const fetchData = async (invitationId: string) => {
       try {
-        const data = await fetchValuesById(invitationId);
-        if (data) {
-          setData(data);
+        const dbData = await fetchValuesById(invitationId);
+        if (dbData) {
+          setData(dbData);
+          console.log('Data fetched:', dbData);
           console.log('Data fetched:', data);
           setView(View.Envelope);
         } else {
@@ -86,7 +87,7 @@ export function InvitationPage() {
                   {/* <AnimatedTitle /> */}
                   <AnimatedSlideshow />
                   <AnimatedDetails />
-                  <AnimatedForm data={data} />
+                  {data && <AnimatedForm data={data} />}
                   <AnimatedCreditsButton />
                 </>
               );

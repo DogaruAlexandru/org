@@ -22,7 +22,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
       <label className="w-full">{label}</label>
       <div className="flex justify-center w-full">
         {options.map((option) => (
-          <div key={option.value} className="me-4 hover:scale-125 duration-100">
+          <div key={option.value} className="mx-3 hover:scale-125 duration-100">
             <label htmlFor={`${idPrefix}${option.value}`} className="mr-2">
               {option.label}
             </label>

@@ -27,7 +27,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
 
     try {
       let updatedData = { ...dataFallback };
-      switch (data.type) {
+      switch (data.form_type) {
         case 'single':
           updatedData.coming1 = data.coming1;
           updatedData.menu1 = data.menu1;
@@ -83,9 +83,13 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 onSubmit={handleSubmit}
                 className="flex flex-col place-content-center text-center"
               >
-                {data.type === 'single' && <FormSingle data={data} canModify />}
-                {data.type === 'couple' && <FormCouple data={data} canModify />}
-                {data.type === 'single-extra' && (
+                {data.form_type === 'single' && (
+                  <FormSingle data={data} canModify />
+                )}
+                {data.form_type === 'couple' && (
+                  <FormCouple data={data} canModify />
+                )}
+                {data.form_type === 'single-extra' && (
                   <FormSingleExtra data={data} canModify />
                 )}
 
@@ -96,7 +100,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                     className="my-bg-band2 px-10 py-1 rounded-xl border border-my_dark shadow-lg
                     hover-bg-band2 hover:text-white hover:scale-110 duration-100"
                   >
-                    Save
+                    Salvează
                   </button>
                 </div>
               </form>

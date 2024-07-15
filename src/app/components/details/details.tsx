@@ -41,7 +41,7 @@ function Details() {
           title="Sărbătorirea evenimentului"
           date="22 Februarie 2025"
           time="15:00"
-          location="Trei Stejari"
+          location="Trei Stejari - Brașov"
           mapLink="https://maps.app.goo.gl/rXaXLJ2k8xM6Durw7"
         />
       </div>

@@ -44,9 +44,9 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   }, [deadline]);
 
   return (
-    <div className="flex justify-center text-center items-center flex-wrap mt-6">
+    <div className="flex justify-center text-center items-center flex-wrap mt-6 font-dancing-script">
       <div
-        className={`${bgColor} ${textColor} shadow-lg px-4 py-2 rounded-3xl border border-my_dark w-auto`}
+        className={`${bgColor} ${textColor} shadow-lg px-4 py-2 rounded-3xl text-xl border border-my_dark w-auto`}
       >
         {deadlineText}
         <br />

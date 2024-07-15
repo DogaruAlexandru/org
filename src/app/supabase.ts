@@ -8,12 +8,12 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 // Define an interface for the form data structure
 interface FormData {
   id: string;
-  type: string;
+  form_type: string;
   name1: string;
   coming1: boolean;
   menu1: string;
-  name2: string;
   coming2: boolean;
+  name2: string;
   menu2: string;
 }
 
@@ -29,12 +29,12 @@ async function fetchValuesById(id: string): Promise<FormData | null> {
   if (data && data[0]) {
     return {
       id: data[0].id,
-      type: data[0].type,
+      form_type: data[0].form_type,
       name1: data[0].name1,
       coming1: data[0].coming1,
       menu1: data[0].menu1,
-      name2: data[0].name2,
       coming2: data[0].coming2,
+      name2: data[0].name2,
       menu2: data[0].menu2,
     };
   }
@@ -48,16 +48,16 @@ async function writeValues(formData: FormData): Promise<boolean> {
     id,
     coming1: coming1,
     menu1: menu1,
-    name2: name2,
     coming2: coming2,
+    name2: name2,
     menu2: menu2,
   } = formData;
   const response = await supabase.rpc('update_form_by_id', {
     row_id: id,
     new_coming1: coming1,
     new_menu1: menu1,
-    new_name2: name2,
     new_coming2: coming2,
+    new_name2: name2,
     new_menu2: menu2,
   });
 

@@ -40,7 +40,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu2(event.target.value);
-    data.menu1 = event.target.value;
+    data.menu2 = event.target.value;
   };
 
   return (
@@ -61,10 +61,10 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
       <RadioButtonGroup
         idPrefix="coming1"
-        label=""
+        label="Vin"
         options={[
-          { label: 'Vin', value: 'yes' },
-          { label: 'Nu vin', value: 'no' },
+          { label: 'Da', value: 'yes' },
+          { label: 'Nu', value: 'no' },
         ]}
         selectedValue={isComing1}
         canModify={canModify}
@@ -101,20 +101,22 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
           {isComing2 === 'yes' && (
             <>
-              <label htmlFor="name2" className="w-full">
-                Nume invitat
-              </label>
-              <input
-                id="name2"
-                name="name2"
-                type="text"
-                required
-                value={name2}
-                onChange={handleName2Change}
-                className="border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
-                focus:outline-none focus:border-accent focus:ring focus:ring-accent
-                text-2xl w-full sm:w-3/4 lg:w-1/2"
-              />
+              <div className="flex flex-col items-center mb-4">
+                <label htmlFor="name2" className="w-full">
+                  Nume invitat
+                </label>
+                <input
+                  id="name2"
+                  name="name2"
+                  type="text"
+                  required
+                  value={name2}
+                  onChange={handleName2Change}
+                  className="border border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
+                  focus:outline-none focus:border-accent focus:ring focus:ring-accent text-center
+                  text-2xl w-full sm:w-3/4 lg:w-1/2 whitespace-pre-wrap word-wrap-break-word"
+                />
+              </div>
 
               <RadioButtonGroup
                 idPrefix="menu2"

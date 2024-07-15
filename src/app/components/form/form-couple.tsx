@@ -31,7 +31,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({ data, canModify }) => {
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu2(event.target.value);
-    data.menu1 = event.target.value;
+    data.menu2 = event.target.value;
   };
 
   return (
@@ -52,10 +52,10 @@ const FormCouple: React.FC<FormCoupleProps> = ({ data, canModify }) => {
 
       <RadioButtonGroup
         idPrefix="coming1"
-        label=""
+        label="Vin"
         options={[
-          { label: 'Vin', value: 'yes' },
-          { label: 'Nu vin', value: 'no' },
+          { label: 'Da', value: 'yes' },
+          { label: 'Nu', value: 'no' },
         ]}
         selectedValue={isComing1}
         canModify={canModify}
@@ -94,10 +94,10 @@ const FormCouple: React.FC<FormCoupleProps> = ({ data, canModify }) => {
 
       <RadioButtonGroup
         idPrefix="coming2"
-        label=""
+        label="Vin"
         options={[
-          { label: 'Vin', value: 'yes' },
-          { label: 'Nu vin', value: 'no' },
+          { label: 'Da', value: 'yes' },
+          { label: 'Nu', value: 'no' },
         ]}
         selectedValue={isComing2}
         canModify={canModify}
