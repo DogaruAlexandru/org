@@ -82,9 +82,9 @@ export function InvitationPage() {
             case View.Main:
               return (
                 <>
-                  <AnimatedTitle />
-                  <AnimatedSlideshow />
                   <AnimatedInvitation />
+                  {/* <AnimatedTitle /> */}
+                  <AnimatedSlideshow />
                   <AnimatedDetails />
                   <AnimatedForm data={data} />
                   <AnimatedCreditsButton />
