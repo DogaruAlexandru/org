@@ -9,12 +9,12 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 interface FormData {
   id: string;
   type: string;
-  f_p_name: string;
-  f_p_coming: boolean;
-  f_p_menu: string;
-  s_p_name: string;
-  s_p_coming: boolean;
-  s_p_menu: string;
+  name1: string;
+  coming1: boolean;
+  menu1: string;
+  name2: string;
+  coming2: boolean;
+  menu2: string;
 }
 
 // Fetch values by ID
@@ -30,12 +30,12 @@ async function fetchValuesById(id: string): Promise<FormData | null> {
     return {
       id: data[0].id,
       type: data[0].type,
-      f_p_name: data[0].f_p_name,
-      f_p_coming: data[0].f_p_coming,
-      f_p_menu: data[0].f_p_menu,
-      s_p_name: data[0].s_p_name,
-      s_p_coming: data[0].s_p_coming,
-      s_p_menu: data[0].s_p_menu,
+      name1: data[0].name1,
+      coming1: data[0].coming1,
+      menu1: data[0].menu1,
+      name2: data[0].name2,
+      coming2: data[0].coming2,
+      menu2: data[0].menu2,
     };
   }
 
@@ -46,23 +46,19 @@ async function fetchValuesById(id: string): Promise<FormData | null> {
 async function writeValues(formData: FormData): Promise<boolean> {
   const {
     id,
-    type,
-    f_p_name,
-    f_p_coming,
-    f_p_menu,
-    s_p_name,
-    s_p_coming,
-    s_p_menu,
+    coming1: coming1,
+    menu1: menu1,
+    name2: name2,
+    coming2: coming2,
+    menu2: menu2,
   } = formData;
   const response = await supabase.rpc('update_form_by_id', {
     row_id: id,
-    new_type: type,
-    new_f_p_name: f_p_name,
-    new_f_p_coming: f_p_coming,
-    new_f_p_menu: f_p_menu,
-    new_s_p_name: s_p_name,
-    new_s_p_coming: s_p_coming,
-    new_s_p_menu: s_p_menu,
+    new_coming1: coming1,
+    new_menu1: menu1,
+    new_name2: name2,
+    new_coming2: coming2,
+    new_menu2: menu2,
   });
 
   if (response.error) {

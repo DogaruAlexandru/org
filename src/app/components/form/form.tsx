@@ -1,90 +1,72 @@
 import { useEffect, useState } from 'react';
 
-import { writeValues } from '../../supabase';
+import { FormData, writeValues } from '../../supabase';
 
-import RadioButtonGroup from './radio-button-group';
 import TimeLeft from './time-left';
-import { NotificationSelector, NotificationType } from '../notification';
-
-enum SaveStatus {
-  None,
-  SaveInProgress,
-  SaveSuccess,
-  SaveError,
-}
+import {
+  NotificationSelector,
+  NotificationType,
+  SaveStatus,
+} from '../notification';
+import FormSingle from './form-single';
+import FormSingleExtra from './form-single-extra';
+import FormCouple from './form-couple';
 
 interface FormProps {
-  data: any;
+  data: FormData;
 }
 
 const Form: React.FC<FormProps> = ({ data }) => {
-  const id = data.id;
-  const name = data.name;
-  const [isComing, setIsComing] = useState(data.coming ? 'yes' : 'no');
-  const [menu, setMenu] = useState(data.accompanied ? 'yes' : 'no');
-  const [accompanied, setAccompanied] = useState(data.vegan ? 'yes' : 'no');
-  const [extraMenu, setExtraMenu] = useState(data.extra_vegan ? 'yes' : 'no');
-
   const [saveStatus, setSaveStatus] = useState(SaveStatus.None);
   const [canModify, setCanModify] = useState(false);
-
-  const setFormValues = () => {
-    setIsComing(data.coming ? 'yes' : 'no');
-    setMenu(data.accompanied ? 'yes' : 'no');
-    setAccompanied(data.vegan ? 'yes' : 'no');
-    setExtraMenu(data.extra_vegan ? 'yes' : 'no');
-  };
-
-  useEffect(() => {
-    setFormValues();
-  }, []);
-
-  const handleComingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsComing(event.target.value);
-  };
-
-  const handleAccompaniedChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setAccompanied(event.target.value);
-  };
-
-  const handleMenuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMenu(event.target.value);
-  };
-
-  const handleExtraMenuChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setExtraMenu(event.target.value);
-  };
+  let dataFallback = { ...data };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setSaveStatus(SaveStatus.SaveInProgress);
+
     try {
-      const success = await writeValues(
-        id,
-        isComing === 'yes',
-        menu === 'yes',
-        accompanied === 'yes',
-        extraMenu === 'yes'
-      );
+      let updatedData = { ...dataFallback };
+      switch (data.type) {
+        case 'single':
+          updatedData.coming1 = data.coming1;
+          updatedData.menu1 = data.menu1;
+          break;
+        case 'couple':
+          updatedData.coming1 = data.coming1;
+          updatedData.menu1 = data.menu1;
+          updatedData.coming2 = data.coming2;
+          updatedData.menu2 = data.menu2;
+          break;
+        case 'single-extra':
+          updatedData.coming1 = data.coming1;
+          updatedData.menu1 = data.menu1;
+          updatedData.name2 = data.name2;
+          updatedData.coming2 = data.coming2;
+          updatedData.menu2 = data.menu2;
+          break;
+      }
+      const success = await writeValues(updatedData);
+
       if (success) {
         setSaveStatus(SaveStatus.SaveSuccess);
+        dataFallback = { ...data };
+
         setTimeout(() => {
           setSaveStatus(SaveStatus.None);
         }, 2000);
       } else {
         setSaveStatus(SaveStatus.SaveError);
-        setFormValues();
+        data = { ...dataFallback };
+
         setTimeout(() => {
           setSaveStatus(SaveStatus.None);
         }, 3000);
       }
     } catch (error) {
       setSaveStatus(SaveStatus.SaveError);
-      setFormValues();
+      data = { ...dataFallback };
+
       setTimeout(() => {
         setSaveStatus(SaveStatus.None);
       }, 3000);
@@ -101,72 +83,10 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 onSubmit={handleSubmit}
                 className="flex flex-col place-content-center text-center"
               >
-                <div className="flex flex-col items-center mb-4">
-                  <label htmlFor="name" className="w-full">
-                    Name
-                  </label>
-                  <div
-                    id="name"
-                    className="rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
-                    text-2xl w-full sm:w-3/4 lg:w-1/2 whitespace-pre-wrap word-wrap-break-word
-                    border border-my_dark bg-white"
-                  >
-                    {name}
-                  </div>
-                </div>
-
-                <RadioButtonGroup
-                  idPrefix="coming"
-                  label="Coming"
-                  options={[
-                    { label: 'Yes', value: 'yes' },
-                    { label: 'No', value: 'no' },
-                  ]}
-                  selectedValue={isComing}
-                  canModify={canModify}
-                  onChange={handleComingChange}
-                />
-
-                {isComing === 'yes' && (
-                  <>
-                    <RadioButtonGroup
-                      idPrefix="menu"
-                      label="Vegan menu"
-                      options={[
-                        { label: 'Yes', value: 'yes' },
-                        { label: 'No', value: 'no' },
-                      ]}
-                      selectedValue={menu}
-                      canModify={canModify}
-                      onChange={handleMenuChange}
-                    />
-
-                    <RadioButtonGroup
-                      idPrefix="accompanied"
-                      label="Accompanied"
-                      options={[
-                        { label: 'Yes', value: 'yes' },
-                        { label: 'No', value: 'no' },
-                      ]}
-                      selectedValue={accompanied}
-                      canModify={canModify}
-                      onChange={handleAccompaniedChange}
-                    />
-
-                    {accompanied === 'yes' && (
-                      <RadioButtonGroup
-                        idPrefix="extraMenu"
-                        label="Vegan menu for your guest"
-                        options={[
-                          { label: 'Yes', value: 'yes' },
-                          { label: 'No', value: 'no' },
-                        ]}
-                        selectedValue={extraMenu}
-                        canModify={canModify}
-                        onChange={handleExtraMenuChange}
-                      />
-                    )}
-                  </>
+                {data.type === 'single' && <FormSingle data={data} canModify />}
+                {data.type === 'couple' && <FormCouple data={data} canModify />}
+                {data.type === 'single-extra' && (
+                  <FormSingleExtra data={data} canModify />
                 )}
 
                 <div className="flex justify-center mt-6">
