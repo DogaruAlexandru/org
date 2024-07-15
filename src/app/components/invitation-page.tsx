@@ -12,7 +12,7 @@ import Title from './title';
 import WithAnimation from './animations/with-animation';
 import { NotificationSelector, NotificationType } from './notification';
 
-import { fetchValuesById } from '../supabase';
+import { fetchValuesById, FormData } from '../supabase';
 
 import bg_image from '../../assets/images/bg.png';
 
@@ -36,7 +36,7 @@ export function InvitationPage() {
   const navigate = useNavigate();
 
   const [view, setView] = useState(View.Loading);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<FormData | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
