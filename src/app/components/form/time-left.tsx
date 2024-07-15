@@ -6,9 +6,12 @@ interface TimeLeftProps {
 
 const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   const deadline = new Date('2024-09-01T00:00:00+03:00'); // New deadline date in Bucharest timezone
+  const deadlineText = `Modificabil până la: ${deadline.toLocaleString(
+    'ro-RO'
+  )}`;
   const [bgColor, setBgColor] = useState('');
   const [textColor, setTextColor] = useState('');
-  const [text, setText] = useState('');
+  const [timeLeftText, setTimeLeftText] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,7 +25,7 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
         setBgColor('my-red-grd');
         setTextColor('text-white');
         setCanModify(false);
-        setText("Can't modify anymore");
+        setTimeLeftText("Can't modify anymore");
       } else {
         setBgColor('my-bg-band3');
         setTextColor('text-my_dark');
@@ -33,11 +36,7 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
         const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
         const seconds = Math.floor((timeDiff / 1000) % 60);
 
-        setText(
-          `Modifiable until: ${deadline.toLocaleString(
-            'ro-RO'
-          )} (${days}d ${hours}h ${minutes}m ${seconds}s left)`
-        );
+        setTimeLeftText(`(${days}z ${hours}h ${minutes}m ${seconds}s rămase)`);
       }
     }, 1000);
 
@@ -47,9 +46,11 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   return (
     <div className="flex justify-center text-center items-center flex-wrap mt-6">
       <div
-        className={`${bgColor} ${textColor} shadow-lg p-2 rounded-full border border-my_dark w-auto`}
+        className={`${bgColor} ${textColor} shadow-lg px-4 py-2 rounded-3xl border border-my_dark w-auto`}
       >
-        {text}
+        {deadlineText}
+        <br />
+        {timeLeftText}
       </div>
     </div>
   );
