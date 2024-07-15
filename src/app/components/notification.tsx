@@ -1,5 +1,12 @@
 import React from 'react';
 
+enum SaveStatus {
+  None,
+  SaveInProgress,
+  SaveSuccess,
+  SaveError,
+}
+
 enum NotificationType {
   Loading,
   LoadingSuccess,
@@ -29,7 +36,7 @@ const LoadingNotification: React.FC = () => {
 
   return (
     <Notification bgColor="my-gray-grd" textColor="text-white">
-      Loading data
+      Se încarcă datele
       <div className="w-1">{Array(points).fill('.').join('')}</div>
     </Notification>
   );
@@ -38,7 +45,7 @@ const LoadingNotification: React.FC = () => {
 const SuccessNotification: React.FC = () => {
   return (
     <Notification bgColor="my-green-grd" textColor="text-white">
-      Data loaded successfully.
+      Datele au fost încărcate cu succes.
     </Notification>
   );
 };
@@ -46,7 +53,7 @@ const SuccessNotification: React.FC = () => {
 const ErrorNotification: React.FC = () => {
   return (
     <Notification bgColor="my-red-grd" textColor="text-white">
-      Failed to load data.
+      Eroare la încărcarea datelor.
     </Notification>
   );
 };
@@ -64,7 +71,7 @@ const SaveInProgressNotification: React.FC = () => {
 
   return (
     <Notification bgColor="my-gray-grd" textColor="text-white">
-      Saving data
+      Se salvează datele
       <div className="w-1">{Array(points).fill('.').join('')}</div>
     </Notification>
   );
@@ -73,7 +80,7 @@ const SaveInProgressNotification: React.FC = () => {
 const SaveSuccessNotification: React.FC = () => {
   return (
     <Notification bgColor="my-green-grd" textColor="text-white">
-      Data saved successfully.
+      Datele au fost salvate cu succes.
     </Notification>
   );
 };
@@ -81,7 +88,7 @@ const SaveSuccessNotification: React.FC = () => {
 const SaveErrorNotification: React.FC = () => {
   return (
     <Notification bgColor="my-red-grd" textColor="text-white">
-      Failed to save data.
+      Eroare la salvarea datelor.
     </Notification>
   );
 };
@@ -97,9 +104,10 @@ const WrongUrlNotification: React.FC = () => {
       style={{ backgroundImage: `url(${bg_image})` }}
     >
       <Notification bgColor="my-gray-grd" textColor="text-white">
-        <h1>Welcome to the Wedding Invitation Site</h1>
+        <h1>Bine ați venit la site-ul de invitații la nuntă</h1>
         <p>
-          Please use the correct invitation link to access the invitation page.
+          Vă rugăm să utilizați link-ul corect de invitație pentru a accesa
+          pagina de invitație.
         </p>
       </Notification>
     </div>
@@ -144,4 +152,4 @@ const NotificationSelector: React.FC<{ type: NotificationType }> = ({
   }
 };
 
-export { NotificationSelector, NotificationType };
+export { NotificationSelector, NotificationType, SaveStatus };
