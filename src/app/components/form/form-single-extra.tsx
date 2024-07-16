@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useRef, useCallback } from 'react';
 import { FormData } from 'src/app/supabase';
 import RadioButtonGroup from './radio-button-group';
 
@@ -18,6 +18,8 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
   const [name2, setName2] = useState(data.name2);
   const [menu2, setMenu2] = useState(data.menu2);
 
+  const name2Ref = useRef<HTMLTextAreaElement>(null);
+
   const handleComing1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing1(event.target.value);
     data.coming1 = event.target.value === 'yes';
@@ -33,9 +35,10 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
     data.coming2 = event.target.value === 'yes';
   };
 
-  const handleName2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleName2Change = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setName2(event.target.value);
     data.name2 = event.target.value;
+    adjustTextareaHeight(event.target);
   };
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,12 +46,37 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
     data.menu2 = event.target.value;
   };
 
+  const adjustTextareaHeight = (textarea: HTMLTextAreaElement) => {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
+
+  const observeTextarea = useCallback(() => {
+    if (name2Ref.current) {
+      const textarea = name2Ref.current;
+      const resizeObserver = new ResizeObserver(() =>
+        adjustTextareaHeight(textarea)
+      );
+      resizeObserver.observe(textarea);
+
+      return () => resizeObserver.disconnect();
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    adjustTextareaHeight(name2Ref.current!);
+    const disconnectObserver = observeTextarea();
+
+    return () => {
+      if (disconnectObserver) {
+        disconnectObserver();
+      }
+    };
+  }, [name2, observeTextarea]);
+
   return (
     <div>
       <div className="flex flex-col items-center mb-4">
-        {/* <label htmlFor="name1" className="w-full">
-          Invitat(ă)
-        </label> */}
         <div
           id="name1"
           className="rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
@@ -105,16 +133,18 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
                 <label htmlFor="name2" className="w-full">
                   Nume invitat
                 </label>
-                <input
+                <textarea
                   id="name2"
                   name="name2"
-                  type="text"
                   required
                   value={name2}
                   onChange={handleName2Change}
+                  ref={name2Ref}
                   className="border border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
                   focus:outline-none focus:border-accent focus:ring focus:ring-accent text-center
-                  text-2xl w-full sm:w-3/4 lg:w-1/2 whitespace-pre-wrap word-wrap-break-word"
+                  text-2xl w-full sm:w-3/4 lg:w-1/2 whitespace-pre-wrap word-wrap-break-word
+                  resize-none overflow-hidden"
+                  rows={1}
                 />
               </div>
 
