@@ -5,28 +5,30 @@ import RadioButtonGroup from './radio-button-group';
 interface FormSingleProps {
   data: FormData;
   canModify: boolean;
+  updateFormData: (updatedData: Partial<FormData>) => void;
 }
 
-const FormSingle: React.FC<FormSingleProps> = ({ data, canModify }) => {
+const FormSingle: React.FC<FormSingleProps> = ({
+  data,
+  canModify,
+  updateFormData,
+}) => {
   const [isComing, setIsComing] = useState(data.coming1 ? 'yes' : 'no');
   const [menu, setMenu] = useState(data.menu1);
 
   const handleComingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing(event.target.value);
-    data.coming1 = event.target.value === 'yes';
+    updateFormData({ coming1: event.target.value === 'yes' });
   };
 
   const handleMenuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu(event.target.value);
-    data.menu1 = event.target.value;
+    updateFormData({ menu1: event.target.value });
   };
 
   return (
     <div>
       <div className="flex flex-col items-center mb-4">
-        {/* <label htmlFor="name" className="w-full">
-          Invitat(ă)
-        </label> */}
         <div
           id="name"
           className="rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100

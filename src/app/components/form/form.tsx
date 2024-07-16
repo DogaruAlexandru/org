@@ -17,47 +17,28 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ data }) => {
+  const [formData, setFormData] = useState(data);
   const [saveStatus, setSaveStatus] = useState(SaveStatus.None);
   const [canModify, setCanModify] = useState(false);
-  let dataFallback = { ...data };
+  const [dataFallback, setDataFallback] = useState({ ...data });
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setSaveStatus(SaveStatus.SaveInProgress);
 
     try {
-      let updatedData = { ...dataFallback };
-      switch (data.form_type) {
-        case 'single':
-          updatedData.coming1 = data.coming1;
-          updatedData.menu1 = data.menu1;
-          break;
-        case 'couple':
-          updatedData.coming1 = data.coming1;
-          updatedData.menu1 = data.menu1;
-          updatedData.coming2 = data.coming2;
-          updatedData.menu2 = data.menu2;
-          break;
-        case 'single-extra':
-          updatedData.coming1 = data.coming1;
-          updatedData.menu1 = data.menu1;
-          updatedData.name2 = data.name2;
-          updatedData.coming2 = data.coming2;
-          updatedData.menu2 = data.menu2;
-          break;
-      }
-      const success = await writeValues(updatedData);
+      const success = await writeValues(formData);
 
       if (success) {
         setSaveStatus(SaveStatus.SaveSuccess);
-        dataFallback = { ...data };
+        setDataFallback({ ...formData });
 
         setTimeout(() => {
           setSaveStatus(SaveStatus.None);
         }, 2000);
       } else {
         setSaveStatus(SaveStatus.SaveError);
-        data = { ...dataFallback };
+        setFormData({ ...dataFallback });
 
         setTimeout(() => {
           setSaveStatus(SaveStatus.None);
@@ -65,12 +46,16 @@ const Form: React.FC<FormProps> = ({ data }) => {
       }
     } catch (error) {
       setSaveStatus(SaveStatus.SaveError);
-      data = { ...dataFallback };
+      setFormData({ ...dataFallback });
 
       setTimeout(() => {
         setSaveStatus(SaveStatus.None);
       }, 3000);
     }
+  };
+
+  const updateFormData = (updatedData: Partial<FormData>) => {
+    setFormData((prevData) => ({ ...prevData, ...updatedData }));
   };
 
   return (() => {
@@ -83,14 +68,26 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 onSubmit={handleSubmit}
                 className="flex flex-col place-content-center text-center"
               >
-                {data.form_type === 'single' && (
-                  <FormSingle data={data} canModify />
+                {formData.form_type === 'single' && (
+                  <FormSingle
+                    data={formData}
+                    canModify={canModify}
+                    updateFormData={updateFormData}
+                  />
                 )}
-                {data.form_type === 'couple' && (
-                  <FormCouple data={data} canModify />
+                {formData.form_type === 'couple' && (
+                  <FormCouple
+                    data={formData}
+                    canModify={canModify}
+                    updateFormData={updateFormData}
+                  />
                 )}
-                {data.form_type === 'single-extra' && (
-                  <FormSingleExtra data={data} canModify />
+                {formData.form_type === 'single-extra' && (
+                  <FormSingleExtra
+                    data={formData}
+                    canModify={canModify}
+                    updateFormData={updateFormData}
+                  />
                 )}
 
                 <div className="flex justify-center mt-6">

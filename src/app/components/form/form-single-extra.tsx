@@ -5,11 +5,13 @@ import RadioButtonGroup from './radio-button-group';
 interface FormSingleExtraProps {
   data: FormData;
   canModify: boolean;
+  updateFormData: (updatedData: Partial<FormData>) => void;
 }
 
 const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
   data,
   canModify,
+  updateFormData,
 }) => {
   const [isComing1, setIsComing1] = useState(data.coming1 ? 'yes' : 'no');
   const [menu1, setMenu1] = useState(data.menu1);
@@ -22,22 +24,22 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
   const handleComing1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing1(event.target.value);
-    data.coming1 = event.target.value === 'yes';
+    updateFormData({ coming1: event.target.value === 'yes' });
   };
 
   const handleMenu1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu1(event.target.value);
-    data.menu1 = event.target.value;
+    updateFormData({ menu1: event.target.value });
   };
 
   const handleComing2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing2(event.target.value);
-    data.coming2 = event.target.value === 'yes';
+    updateFormData({ coming2: event.target.value === 'yes' });
   };
 
   const handleName2Change = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setName2(event.target.value);
-    data.name2 = event.target.value;
+    updateFormData({ name2: event.target.value });
     if (event.target) {
       adjustTextareaHeight(event.target);
     }
@@ -45,7 +47,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMenu2(event.target.value);
-    data.menu2 = event.target.value;
+    updateFormData({ menu2: event.target.value });
   };
 
   const adjustTextareaHeight = (textarea: HTMLTextAreaElement) => {
@@ -143,6 +145,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
                   required
                   value={name2}
                   onChange={handleName2Change}
+                  placeholder="Prenume Nume"
                   ref={name2Ref}
                   className="border border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
                   focus:outline-none focus:border-accent focus:ring focus:ring-accent text-center
