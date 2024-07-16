@@ -38,7 +38,9 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
   const handleName2Change = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setName2(event.target.value);
     data.name2 = event.target.value;
-    adjustTextareaHeight(event.target);
+    if (event.target) {
+      adjustTextareaHeight(event.target);
+    }
   };
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,14 +66,16 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
   }, []);
 
   useLayoutEffect(() => {
-    adjustTextareaHeight(name2Ref.current!);
-    const disconnectObserver = observeTextarea();
+    if (name2Ref.current) {
+      adjustTextareaHeight(name2Ref.current);
+      const disconnectObserver = observeTextarea();
 
-    return () => {
-      if (disconnectObserver) {
-        disconnectObserver();
-      }
-    };
+      return () => {
+        if (disconnectObserver) {
+          disconnectObserver();
+        }
+      };
+    }
   }, [name2, observeTextarea]);
 
   return (
