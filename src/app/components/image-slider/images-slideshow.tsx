@@ -13,12 +13,24 @@ const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [parentWidth, setParentWidth] = useState(0);
   const parentRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const resetAndStartInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
-    return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    resetAndStartInterval();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -38,6 +50,11 @@ const Slideshow = () => {
       }
     };
   }, []);
+
+  const handleIndicatorClick = (index: number) => {
+    setCurrentIndex(index);
+    resetAndStartInterval();
+  };
 
   const renderSlides = (position: 'left' | 'center' | 'right') => {
     return images.map((img, index) => {
@@ -97,7 +114,7 @@ const Slideshow = () => {
       <Indicators
         images={images}
         currentIndex={currentIndex}
-        onClick={setCurrentIndex}
+        onClick={handleIndicatorClick}
       />
     </div>
   );
