@@ -14,8 +14,6 @@ import { NotificationSelector, NotificationType } from './notification';
 
 import { fetchValuesById, FormData } from '../supabase';
 
-import bg_image from '../../assets/images/bg.png';
-
 export enum View {
   Loading,
   LoadingError,
@@ -99,8 +97,7 @@ export function InvitationPage() {
 
   return (
     <div
-      style={{ backgroundImage: `url(${bg_image})` }}
-      className="bg-repeat h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
+      className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
       scrollbar-track-accent-light overflow-x-hidden"
     >
       <AudioPlayer />

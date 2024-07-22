@@ -96,7 +96,7 @@ const SaveErrorNotification: React.FC = () => {
 const WrongUrlNotification: React.FC = () => {
   return (
     <div
-      className="my-bg-band2 h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
+      className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
       scrollbar-track-accent-light overflow-x-hidden text-3xl
       space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32"
     >
