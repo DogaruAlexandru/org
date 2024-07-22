@@ -31,7 +31,7 @@ module.exports = {
           dark: '#9eddfa',
         },
         my_dark: '#685057',
-        bg: "#ebf8fe",
+        bg: "#f2c6a5",
         'accent': {
           light: '#a599c2',
           DEFAULT: '#7c6ca6',

@@ -8,7 +8,7 @@ import EnvelopeButton from './envelope-button';
 import Form from './form/form';
 import Slideshow from './image-slider/images-slideshow';
 import Invitation from './invitation';
-import Title from './title';
+// import Title from './title';
 import WithAnimation from './animations/with-animation';
 import { NotificationSelector, NotificationType } from './notification';
 
@@ -24,7 +24,7 @@ export enum View {
 }
 
 // Wrap your components with the HOC
-const AnimatedTitle = WithAnimation(Title);
+// const AnimatedTitle = WithAnimation(Title);
 const AnimatedSlideshow = WithAnimation(Slideshow);
 const AnimatedInvitation = WithAnimation(Invitation);
 const AnimatedDetails = WithAnimation(Details);
@@ -50,8 +50,6 @@ export function InvitationPage() {
         const dbData = await fetchValuesById(invitationId);
         if (dbData) {
           setData(dbData);
-          console.log('Data fetched:', dbData);
-          console.log('Data fetched:', data);
           setView(View.Envelope);
         } else {
           setView(View.LoadingError);
