@@ -32,7 +32,7 @@ function CreditsSection({ show, setShow }: CreditsSectionProps) {
       style={{ opacity: opacity }}
     >
       <div
-        className="my-bg-band3 shadow-lg rounded-lg border-2 border-my_dark text-center 
+        className="my-bg-band4 shadow-lg rounded-lg border-2 border-my_dark text-center 
       text-my_dark"
       >
         {/* Modal content */}

@@ -16,26 +16,32 @@ module.exports = {
     extend: {
       colors: {
         'band1': {
-          light: '#ffffff',
-          DEFAULT: '#ffe5d9',
-          dark: '#ffd5c2',
+          light: '#FEFEFE',
+          DEFAULT: '#E4CBC9',
+          dark: '#D2B8B5',
         },
         'band2': {
-          light: '#fadbe0',
-          DEFAULT: '#f4acb7',
-          dark: '#ef8191',
+          light: '#FFFEFE',
+          DEFAULT: '#FFEFF2',
+          dark: '#FFDCE2',
         },
         'band3': {
+          light: '#EAF2CF',
+          DEFAULT: '#D9E6A9',
+          dark: '#C7DB80',
+        },
+        'band4': {
           light: '#ebf8fe',
           DEFAULT: '#bae6fd',
           dark: '#9eddfa',
         },
-        my_dark: '#685057',
-        bg: "#f2c6a5",
+        text_accent: '#B08A20',
+        my_dark: '#655952',
+        bg: "#fff5ed",
         'accent': {
-          light: '#a599c2',
-          DEFAULT: '#7c6ca6',
-          dark: '#64548c',
+          light: '#DF537F',
+          DEFAULT: '#B0204E',
+          dark: '#9B1C45',
         },
       },
       fontFamily: {

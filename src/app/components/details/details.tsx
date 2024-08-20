@@ -5,7 +5,7 @@ import flower from '../../../assets/images/flower-solid-svgrepo-com.svg';
 function Details() {
   return (
     <div
-      className="my-bg-band2 shadow-lg p-8 rounded-lg border border-my_dark
+      className="my-bg-band1 shadow-lg p-8 rounded-lg border-2 border-my_dark
       font-dancing-script text-center text-my_dark font-bold"
     >
       <h1 className="text-4xl flex justify-center items-center">
@@ -23,13 +23,6 @@ function Details() {
       </h1>
       <br />
       <div className="flex flex-row flex-wrap place-content-center">
-        <DetailsSection
-          title="Cununia civilă"
-          date="22 Februarie 2025"
-          time="10:00"
-          location="Primăria Brașov"
-          mapLink="https://maps.app.goo.gl/eCK5ptZrBtKWNs5U7"
-        />
         <DetailsSection
           title="Cununia religioasă"
           date="22 Februarie 2025"

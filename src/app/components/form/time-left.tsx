@@ -27,7 +27,7 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
         setCanModify(false);
         setTimeLeftText('Nu se mai poate modifica');
       } else {
-        setBgColor('my-bg-band3');
+        setBgColor('my-bg-band4');
         setTextColor('text-my_dark');
         setCanModify(true);
 

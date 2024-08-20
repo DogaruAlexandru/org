@@ -70,14 +70,14 @@ const Background: React.FC = () => {
       // Adjust the maximum number of images and size based on screen width
       const maxWidth = window.innerWidth;
       let maxImages = 25; // Default maximum number of images
-      let maxSize = 200; // Default maximum size
-      let minSize = 100; // Default minimum size
+      let maxSize = 50; // Default maximum size
+      let minSize = 25; // Default minimum size
 
       if (maxWidth <= 768) {
         // For smaller screens
         maxImages = 15; // Fewer images for smaller screens
-        maxSize = 100; // Smaller maximum size
-        minSize = 50; // Smaller minimum size
+        maxSize = 20; // Smaller maximum size
+        minSize = 10; // Smaller minimum size
       }
 
       if (images.length < maxImages) {
@@ -86,7 +86,7 @@ const Background: React.FC = () => {
           src: imageUrls[getRandomInt(0, imageUrls.length - 1)],
           speed: getRandomInt(10, 20),
           size: getRandomInt(minSize, maxSize),
-          opacity: Math.random() * 0.3 + 0.7,
+          opacity: Math.random() * 0.2 + 0.3,
           left: getRandomInt(-20, 100),
           rotation: getRandomInt(-360, 360),
         };
