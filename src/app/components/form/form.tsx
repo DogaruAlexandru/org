@@ -95,7 +95,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                     type="submit"
                     hidden={!canModify}
                     className="my-bg-band2 px-10 py-1 rounded-xl border border-my_dark shadow-lg
-                    hover-bg-band2 hover:text-white hover:scale-110 duration-100"
+                    hover-bg-band2 active-bg-band2 active:text-white hover:text-white hover:scale-110 duration-100"
                   >
                     Salvează
                   </button>

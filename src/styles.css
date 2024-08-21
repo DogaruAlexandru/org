@@ -15,6 +15,10 @@
     @apply bg-gradient-to-tr from-accent-dark via-accent to-accent-light;
 }
 
+.active-bg-band2:active {
+  @apply bg-gradient-to-tr from-accent-dark via-accent to-accent-light;
+}
+
 .my-bg-band3 {
     @apply bg-gradient-to-tr from-band3-dark via-band3 to-band3-light;
 }
