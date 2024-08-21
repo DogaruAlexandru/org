@@ -75,6 +75,21 @@ export function InvitationPage() {
     setView(View.Main);
   };
 
+  const preloadMainComponents = () => {
+    return (
+      <div style={{ display: 'none' }}>
+        <AnimatedInvitation />
+        {/* <AnimatedTitle /> */}
+        {/* <AnimatedNames /> */}
+        <AnimatedSlideshow />
+        <AnimatedVerse />
+        <AnimatedDetails />
+        {data && <AnimatedForm data={data} />}
+        <AnimatedCreditsButton />
+      </div>
+    );
+  };
+
   const renderContent = () => {
     return (
       <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
@@ -115,7 +130,10 @@ export function InvitationPage() {
       <AudioPlayer ref={audioPlayerRef} />
 
       {view === View.Envelope ? (
-        <EnvelopeButton setView={handleEnvelopeClick} />
+        <>
+          <EnvelopeButton setView={handleEnvelopeClick} />
+          {preloadMainComponents()}
+        </>
       ) : (
         renderContent()
       )}
