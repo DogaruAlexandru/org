@@ -17,7 +17,7 @@ function DetailsSection({
   mapLink: string;
 }) {
   return (
-    <div className="my-bg-band1 shadow-lg p-6 rounded-lg border-my_dark mx-2">
+    <div className="my-bg-band1 shadow-lg p-6 rounded-lg border-my_dark m-2">
       <table className="w-full">
         <thead>
           <tr>

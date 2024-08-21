@@ -9,6 +9,7 @@ interface EnvelopeButtonProps {
 function EnvelopeButton({ setView }: EnvelopeButtonProps) {
   const [buttonOpacity, setButtonOpacity] = useState(0);
   const [buttonScale, setButtonScale] = useState(1);
+  const [buttonText, setButtonText] = useState('');
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,6 +23,14 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
     }, 100);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const textTimer = setTimeout(() => {
+      setButtonText('Apasa pentru a deschide');
+    }, 5000);
+
+    return () => clearTimeout(textTimer);
   }, []);
 
   const handleClick = () => {
@@ -43,7 +52,7 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
     >
       <div className="envelope-animation flex justify-center items-center">
         <button
-          className="w-2/3 h-2/3 flex justify-center items-center overflow-hidden hover:scale-110 duration-300"
+          className="w-2/3 h-2/3 flex justify-center items-center hover:scale-110 duration-300"
           onClick={handleClick}
         >
           <img
@@ -51,6 +60,11 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
             alt="Envelope"
             className="w-full h-full object-contain"
           />
+          {buttonText && (
+            <span className="my-red-grd font-dancing-script font-bold p-2 rounded-full text-white absolute text-2xl">
+              {buttonText}
+            </span>
+          )}
         </button>
       </div>
     </div>
