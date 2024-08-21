@@ -9,13 +9,13 @@ interface SlideProps {
 const Slide: React.FC<SlideProps> = ({ img, isVisible, alt }) => {
   return (
     <div
-      className={`absolute w-full transition-opacity duration-2000 ease ${
-        isVisible ? 'opacity-100 relative' : 'opacity-0 absolute'
+      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
       <img
         src={img}
-        className="block w-full h-auto object-contain rounded-lg border-my_dark"
+        className="block w-full h-auto object-cover rounded-lg border-my_dark"
         alt={alt}
       />
     </div>

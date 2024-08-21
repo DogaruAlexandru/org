@@ -7,18 +7,19 @@ import img5 from '../../../assets/images/slideshow/5.jpg';
 import img6 from '../../../assets/images/slideshow/6.jpg';
 import img7 from '../../../assets/images/slideshow/7.jpg';
 import img8 from '../../../assets/images/slideshow/8.jpg';
-// import Indicators from './indicators';
 import Slide from './slide';
-import { throttle } from 'lodash'; // Throttle from lodash
+import { throttle } from 'lodash';
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [parentWidth, setParentWidth] = useState(0);
+  const [parentHeight, setParentHeight] = useState<number>(0);
   const parentRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Reset interval and start auto slideshow
   const resetAndStartInterval = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -29,7 +30,23 @@ const Slideshow = () => {
   };
 
   useEffect(() => {
-    resetAndStartInterval();
+    // Preload images
+    const preloadImages = async () => {
+      await Promise.all(
+        images.map((src) => {
+          return new Promise<void>((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve();
+          });
+        })
+      );
+    };
+
+    preloadImages().then(() => {
+      resetAndStartInterval();
+    });
+
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -38,36 +55,40 @@ const Slideshow = () => {
   }, []);
 
   useEffect(() => {
-    const updateWidth = throttle(() => {
+    // Throttle resize updates
+    const updateDimensions = throttle(() => {
       if (parentRef.current) {
         setParentWidth(parentRef.current.clientWidth);
+
+        // Find max height of visible images
+        const slides = parentRef.current.querySelectorAll('.slide img');
+        let maxHeight = 0;
+        slides.forEach((img) => {
+          const height = img instanceof HTMLImageElement ? img.clientHeight : 0;
+          maxHeight = Math.max(maxHeight, height);
+        });
+
+        // Add 16px to the calculated height
+        setParentHeight(maxHeight + 16);
       }
-    }, 200); // Adjust the delay as needed
+    }, 200);
 
-    // Initial update
-    updateWidth();
+    updateDimensions();
 
-    // Set up ResizeObserver
-    const resizeObserver = new ResizeObserver(updateWidth);
+    const resizeObserver = new ResizeObserver(updateDimensions);
     if (parentRef.current) {
       resizeObserver.observe(parentRef.current);
     }
 
-    // Fallback for window resize event
-    window.addEventListener('resize', updateWidth);
+    window.addEventListener('resize', updateDimensions);
 
     return () => {
       if (parentRef.current) {
         resizeObserver.unobserve(parentRef.current);
       }
-      window.removeEventListener('resize', updateWidth);
+      window.removeEventListener('resize', updateDimensions);
     };
-  }, []);
-
-  // const handleIndicatorClick = (index: number) => {
-  //   setCurrentIndex(index);
-  //   resetAndStartInterval();
-  // };
+  }, [currentIndex, images]);
 
   const renderSlides = (position: 'left' | 'center' | 'right') => {
     if (parentWidth < 700 && position !== 'center') return null;
@@ -87,12 +108,9 @@ const Slideshow = () => {
           break;
       }
       return (
-        <Slide
-          key={index}
-          img={img}
-          isVisible={isVisible}
-          alt={`Slide ${index + 1}`}
-        />
+        <div className="slide" key={index}>
+          <Slide img={img} isVisible={isVisible} alt={`Slide ${index + 1}`} />
+        </div>
       );
     });
   };
@@ -101,28 +119,19 @@ const Slideshow = () => {
     <div
       ref={parentRef}
       id="default-carousel"
-      className="relative my-bg-band1 rounded-lg shadow-lg p-2 border-my_dark overflow-hidden"
+      className="relative w-full my-bg-band1 rounded-lg shadow-lg p-2 border-my_dark"
+      style={{ height: parentHeight }} // Set height dynamically with additional 16px
       data-carousel="slide"
     >
-      <div className="flex flex-row">
+      <div className="relative flex flex-row">
         {/* Left */}
-        <div
-          className={`relative rounded-lg flex-1 ${
-            parentWidth < 700 ? 'hidden' : ''
-          }`}
-        >
+        <div className={`relative w-full ${parentWidth < 700 ? 'hidden' : ''}`}>
           {renderSlides('left')}
         </div>
         {/* Middle */}
-        <div className="relative rounded-lg flex-1 mx-2">
-          {renderSlides('center')}
-        </div>
+        <div className="relative w-full mx-2">{renderSlides('center')}</div>
         {/* Right */}
-        <div
-          className={`relative rounded-lg flex-1 ${
-            parentWidth < 700 ? 'hidden' : ''
-          }`}
-        >
+        <div className={`relative w-full ${parentWidth < 700 ? 'hidden' : ''}`}>
           {renderSlides('right')}
         </div>
       </div>
