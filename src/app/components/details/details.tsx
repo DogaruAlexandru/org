@@ -8,7 +8,7 @@ function Details() {
     <div className="font-dancing-script text-center text-my_dark font-bold">
       <div className="flex flex-row flex-wrap place-content-center">
         <DetailsSection
-          title="Cununia religioasă"
+          title="Cununie religioasă"
           date="22 Februarie 2025"
           time="13:00"
           clock={clock1}
