@@ -79,7 +79,7 @@ const SaveInProgressNotification: React.FC = () => {
 
 const SaveSuccessNotification: React.FC = () => {
   return (
-    <Notification bgColor="my-green-grd" textColor="text-white">
+    <Notification bgColor="my-bg-band3" textColor="text-my_dark">
       Datele au fost salvate cu succes.
     </Notification>
   );
@@ -118,7 +118,7 @@ const Notification: React.FC<NotificationProps> = ({
 }) => {
   return (
     <div
-      className={`${bgColor} ${textColor} shadow-lg px-4 py-8 rounded-lg border border-my_dark 
+      className={`${bgColor} ${textColor} shadow-lg px-4 py-8 rounded-lg border-my_dark 
       font-dancing-script text-center font-bold text-3xl flex justify-center items-center flex-wrap`}
     >
       {children}

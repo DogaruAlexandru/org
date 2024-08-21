@@ -1,39 +1,25 @@
 import DetailsSection from './details-section';
 
-import flower from '../../../assets/images/flower-solid-svgrepo-com.svg';
+import clock1 from '../../../assets/images/clock-one-svgrepo-com.svg';
+import clock4 from '../../../assets/images/clock-four-svgrepo-com.svg';
 
 function Details() {
   return (
-    <div
-      className="my-bg-band1 shadow-lg p-8 rounded-lg border-2 border-my_dark
-      font-dancing-script text-center text-my_dark font-bold"
-    >
-      <h1 className="text-4xl flex justify-center items-center">
-        <img
-          src={flower}
-          alt="flower"
-          className="w-6 h-6 mr-2 sm:w-10 sm:h-10 sm:mr-4 lg:w-16 lg:h-16 lg:mr-8"
-        />
-        Detalii
-        <img
-          src={flower}
-          alt="flower"
-          className="w-6 h-6 ml-2 sm:w-10 sm:h-10 sm:ml-4 lg:w-16 lg:h-16 lg:ml-8"
-        />
-      </h1>
-      <br />
+    <div className="font-dancing-script text-center text-my_dark font-bold">
       <div className="flex flex-row flex-wrap place-content-center">
         <DetailsSection
           title="Cununia religioasă"
           date="22 Februarie 2025"
-          time="12:00"
-          location="TBD"
-          mapLink=""
+          time="13:00"
+          clock={clock1}
+          location="Biserica Punctul Zero"
+          mapLink="https://maps.app.goo.gl/oQJpzQLhgYQjoT346"
         />
         <DetailsSection
-          title="Sărbătorirea evenimentului"
+          title="Festivitate nuntă"
           date="22 Februarie 2025"
-          time="15:00"
+          time="16:00"
+          clock={clock4}
           location="Trei Stejari - Brașov"
           mapLink="https://maps.app.goo.gl/rXaXLJ2k8xM6Durw7"
         />

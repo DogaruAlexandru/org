@@ -6,7 +6,7 @@ interface TimeLeftProps {
 
 const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   const deadline = new Date('2024-09-01T00:00:00+03:00'); // New deadline date in Bucharest timezone
-  const deadlineText = `Modificabil până la: ${deadline.toLocaleString(
+  const deadlineText = `Modificabil până la: ${deadline.toLocaleDateString(
     'ro-RO'
   )}`;
   const [bgColor, setBgColor] = useState('');
@@ -27,16 +27,17 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
         setCanModify(false);
         setTimeLeftText('Nu se mai poate modifica');
       } else {
-        setBgColor('my-bg-band4');
+        setBgColor('my-bg-band3');
         setTextColor('text-my_dark');
         setCanModify(true);
+        setTimeLeftText('');
 
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-        const seconds = Math.floor((timeDiff / 1000) % 60);
+        // const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        // const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+        // const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+        // const seconds = Math.floor((timeDiff / 1000) % 60);
 
-        setTimeLeftText(`(${days}z ${hours}h ${minutes}m ${seconds}s rămase)`);
+        // setTimeLeftText(`(${days}z ${hours}h ${minutes}m ${seconds}s rămase)`);
       }
     }, 1000);
 

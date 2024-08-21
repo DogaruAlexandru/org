@@ -7,7 +7,7 @@ import img5 from '../../../assets/images/slideshow/5.jpg';
 import img6 from '../../../assets/images/slideshow/6.jpg';
 import img7 from '../../../assets/images/slideshow/7.jpg';
 import img8 from '../../../assets/images/slideshow/8.jpg';
-import Indicators from './indicators';
+// import Indicators from './indicators';
 import Slide from './slide';
 import { throttle } from 'lodash'; // Throttle from lodash
 
@@ -25,7 +25,7 @@ const Slideshow = () => {
     }
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -64,12 +64,14 @@ const Slideshow = () => {
     };
   }, []);
 
-  const handleIndicatorClick = (index: number) => {
-    setCurrentIndex(index);
-    resetAndStartInterval();
-  };
+  // const handleIndicatorClick = (index: number) => {
+  //   setCurrentIndex(index);
+  //   resetAndStartInterval();
+  // };
 
   const renderSlides = (position: 'left' | 'center' | 'right') => {
+    if (parentWidth < 700 && position !== 'center') return null;
+
     return images.map((img, index) => {
       let isVisible = false;
       switch (position) {
@@ -99,7 +101,7 @@ const Slideshow = () => {
     <div
       ref={parentRef}
       id="default-carousel"
-      className="relative my-bg-band3 rounded-lg shadow-lg p-2 border-2 border-my_dark overflow-hidden"
+      className="relative my-bg-band1 rounded-lg shadow-lg p-2 border-my_dark overflow-hidden"
       data-carousel="slide"
     >
       <div className="flex flex-row">
@@ -124,11 +126,11 @@ const Slideshow = () => {
           {renderSlides('right')}
         </div>
       </div>
-      <Indicators
+      {/* <Indicators
         images={images}
         currentIndex={currentIndex}
         onClick={handleIndicatorClick}
-      />
+      /> */}
     </div>
   );
 };

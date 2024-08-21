@@ -8,6 +8,8 @@ import EnvelopeButton from './envelope-button';
 import Form from './form/form';
 import Slideshow from './image-slider/images-slideshow';
 import Invitation from './invitation';
+import Names from './names';
+import Verse from './verse';
 // import Title from './title';
 import WithAnimation from './animations/with-animation';
 import { NotificationSelector, NotificationType } from './notification';
@@ -25,6 +27,8 @@ export enum View {
 // const AnimatedTitle = WithAnimation(Title);
 const AnimatedSlideshow = WithAnimation(Slideshow);
 const AnimatedInvitation = WithAnimation(Invitation);
+const AnimatedNames = WithAnimation(Names);
+const AnimatedVerse = WithAnimation(Verse);
 const AnimatedDetails = WithAnimation(Details);
 const AnimatedForm = WithAnimation(Form);
 const AnimatedCreditsButton = WithAnimation(CreditsButton);
@@ -81,7 +85,9 @@ export function InvitationPage() {
                 <>
                   <AnimatedInvitation />
                   {/* <AnimatedTitle /> */}
+                  {/* <AnimatedNames /> */}
                   <AnimatedSlideshow />
+                  <AnimatedVerse />
                   <AnimatedDetails />
                   {data && <AnimatedForm data={data} />}
                   <AnimatedCreditsButton />
@@ -97,8 +103,8 @@ export function InvitationPage() {
 
   return (
     <div
-      className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-accent-dark 
-      scrollbar-track-accent-light overflow-x-hidden"
+      className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-band1-dark 
+      scrollbar-track-band1-light overflow-x-hidden"
     >
       <AudioPlayer />
 

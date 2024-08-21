@@ -14,6 +14,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      transitionDuration: {
+        '2000': '2000ms', // Adds a 'duration-2000' class
+      },
       colors: {
         'band1': {
           light: '#FEFEFE',
@@ -37,11 +40,21 @@ module.exports = {
         },
         text_accent: '#B08A20',
         my_dark: '#655952',
-        bg: "#fff5ed",
+        bg: "#f0f1eb",
         'accent': {
           light: '#DF537F',
           DEFAULT: '#B0204E',
           dark: '#9B1C45',
+        },
+        'dark_green': {
+          light: '#BDC2AE',
+          DEFAULT: '#a4aa8e',
+          dark: '#989F7F',
+        },
+        'gold': {
+          light: '#DBB42C',
+          DEFAULT: '#B69121',
+          dark: '#926C15',
         },
       },
       fontFamily: {

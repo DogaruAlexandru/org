@@ -35,6 +35,10 @@
     @apply bg-gradient-to-tr from-gray-600 via-gray-400 to-gray-200;
 }
 
+.my-golden-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-tr from-gold-dark via-gold to-gold-light;;
+}
+
 @keyframes fadeInOut {
     0%, 100% {
       opacity: 0.7;

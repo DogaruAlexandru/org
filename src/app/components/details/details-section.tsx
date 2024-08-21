@@ -1,20 +1,23 @@
 import sign from '../../../assets/images/location-sign-svgrepo-com.svg';
+import calendar from '../../../assets/images/calendar-alt-svgrepo-com.svg';
 
 function DetailsSection({
   title,
   date,
   time,
+  clock,
   location,
   mapLink,
 }: {
   title: string;
   date: string;
   time: string;
+  clock: string;
   location: string;
   mapLink: string;
 }) {
   return (
-    <div className="my-bg-band2 shadow-lg p-6 rounded-lg border border-my_dark m-2">
+    <div className="my-bg-band1 shadow-lg p-6 rounded-lg border-my_dark mx-2">
       <table className="w-full">
         <thead>
           <tr>
@@ -25,22 +28,27 @@ function DetailsSection({
         </thead>
         <tbody className="text-left text-xl">
           <tr>
-            <td>Dată:</td>
+            <td>
+              <img src={calendar} className="w-5 h-5 mr-2" alt="Date" />
+            </td>
             <td>{date}</td>
           </tr>
           <tr>
-            <td>Oră:</td>
+            <td>
+              <img src={clock} className="w-5 h-5" alt="Time" />
+            </td>
             <td>{time}</td>
           </tr>
           <tr>
-            <td>Locație:</td>
+            <td>
+              <img src={sign} className="w-5 h-5" alt="Location sign" />
+            </td>
             <td className="flex flex-row items-center">
-              {location}
               <button
-                className="hover:scale-150 duration-100 ml-2 flex-shrink-0"
                 onClick={() => window.open(mapLink, '_blank')}
+                className="text-accent-light underline hover:text-accent-dark"
               >
-                <img src={sign} className="w-5 h-5" alt="Location sign" />
+                {location}
               </button>
             </td>
           </tr>

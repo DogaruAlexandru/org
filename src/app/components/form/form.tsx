@@ -62,7 +62,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
     switch (saveStatus) {
       case SaveStatus.None:
         return (
-          <div className="my-bg-band2 shadow-lg px-4 py-8 rounded-lg border-2 border-my_dark">
+          <div className="my-bg-band1 shadow-lg px-4 py-8 rounded-lg border-my_dark">
             <div className="font-dancing-script text-my_dark text-center font-bold text-3xl">
               <form
                 onSubmit={handleSubmit}
@@ -94,7 +94,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                   <button
                     type="submit"
                     hidden={!canModify}
-                    className="my-bg-band1 px-10 py-1 rounded-xl border border-my_dark shadow-lg
+                    className="my-bg-band2 px-10 py-1 rounded-xl border border-my_dark shadow-lg
                     hover-bg-band2 hover:text-white hover:scale-110 duration-100"
                   >
                     Salvează
