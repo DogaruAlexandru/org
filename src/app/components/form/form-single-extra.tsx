@@ -142,6 +142,14 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
                   required
                   value={name2}
                   onChange={handleName2Change}
+                  onInvalid={(e) =>
+                    (e.target as HTMLTextAreaElement).setCustomValidity(
+                      'Vă rugăm, introduceți numele însoțitorului.'
+                    )
+                  }
+                  onInput={(e) =>
+                    (e.target as HTMLTextAreaElement).setCustomValidity('')
+                  }
                   placeholder="Prenume Nume"
                   ref={name2Ref}
                   className="border border-my_dark rounded-lg shadow-sm p-1.5 hover:scale-110 duration-100
