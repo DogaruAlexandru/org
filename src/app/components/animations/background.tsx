@@ -6,13 +6,6 @@ import petal4 from '../../../assets/images/petals/petal4.png';
 import petal5 from '../../../assets/images/petals/petal5.png';
 import petal6 from '../../../assets/images/petals/petal6.png';
 import petal7 from '../../../assets/images/petals/petal7.png';
-import petal8 from '../../../assets/images/petals/petal8.png';
-import petal9 from '../../../assets/images/petals/petal9.png';
-import petal10 from '../../../assets/images/petals/petal10.png';
-import petal11 from '../../../assets/images/petals/petal11.png';
-import petal12 from '../../../assets/images/petals/petal12.png';
-import petal13 from '../../../assets/images/petals/petal13.png';
-import petal14 from '../../../assets/images/petals/petal14.png';
 
 interface Image {
   id: number;
@@ -24,31 +17,27 @@ interface Image {
   rotation: number;
 }
 
-const imageUrls = [
-  petal1,
-  petal2,
-  petal3,
-  petal4,
-  petal5,
-  petal6,
-  petal7,
-  petal8,
-  petal9,
-  petal10,
-  petal11,
-  petal12,
-  petal13,
-  petal14,
-];
+const imageUrls = [petal1, petal2, petal3, petal4, petal5, petal6, petal7];
 
 const getRandomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const preloadImages = (urls: string[]) => {
+  urls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
 };
 
 const Background: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
   const [idCounter, setIdCounter] = useState(0);
   const [pageVisible, setPageVisible] = useState(true);
+
+  useEffect(() => {
+    preloadImages(imageUrls);
+  }, []);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -86,7 +75,7 @@ const Background: React.FC = () => {
           src: imageUrls[getRandomInt(0, imageUrls.length - 1)],
           speed: getRandomInt(10, 20),
           size: getRandomInt(minSize, maxSize),
-          opacity: Math.random() * 0.2 + 0.2,
+          opacity: Math.random() * 0.5 + 0.5,
           left: getRandomInt(-20, 100),
           rotation: getRandomInt(-360, 360),
         };
@@ -97,7 +86,7 @@ const Background: React.FC = () => {
 
     let interval: string | number | NodeJS.Timer | undefined;
     if (pageVisible) {
-      interval = setInterval(addImage, 1500); // Interval set to 1000 milliseconds (1 second)
+      interval = setInterval(addImage, 1500); // Interval set to 1500 milliseconds (1.5 seconds)
     }
 
     return () => clearInterval(interval);

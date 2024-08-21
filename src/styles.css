@@ -82,7 +82,7 @@
   
   .falling-image {
     position: absolute;
-    top: -250px;
+    top: -50px;
     animation-name: fall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;

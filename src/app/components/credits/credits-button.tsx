@@ -12,7 +12,7 @@ function CreditsButton() {
     <div className="flex justify-end">
       <button
         onClick={handleClick}
-        className="my-bg-band1 px-6 py-1 rounded-full border border-my_dark shadow-2xl
+        className="my-bg-band1 px-6 py-1 rounded-full border-my_dark shadow-2xl
         text-sm hover-bg-band2 hover:text-white duration-100"
       >
         Afișează Credite
