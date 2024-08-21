@@ -123,7 +123,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
           <RadioButtonGroup
             idPrefix="coming2"
-            label="Am invitat"
+            label="Cu însoțitor"
             options={[
               { label: 'Da', value: 'yes' },
               { label: 'Nu', value: 'no' },
@@ -136,9 +136,6 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
           {isComing2 === 'yes' && (
             <>
               <div className="flex flex-col items-center mb-4">
-                <label htmlFor="name2" className="w-full">
-                  Nume invitat
-                </label>
                 <textarea
                   id="name2"
                   name="name2"
