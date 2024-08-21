@@ -56,9 +56,9 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
         transition: 'opacity 300ms, transform 300ms',
       }}
     >
-      <div className="envelope-animation flex justify-center items-center">
+      <div className="envelope-animation flex justify-center items-center w-2/3 h-2/3">
         <button
-          className="w-2/3 h-2/3 flex justify-center items-center hover:scale-110 duration-300"
+          className="w-full h-full overflow-hidden flex justify-center items-center hover:scale-110 active:scale-110 duration-300"
           onClick={handleClick}
         >
           <img
