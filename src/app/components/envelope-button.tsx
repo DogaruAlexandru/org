@@ -12,6 +12,12 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
   const [buttonText, setButtonText] = useState('');
 
   useEffect(() => {
+    // Preload the envelope image
+    const img = new Image();
+    img.src = envelope_image;
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);
