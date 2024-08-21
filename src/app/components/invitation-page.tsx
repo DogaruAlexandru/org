@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import AudioPlayer from './audio-player';
@@ -27,7 +27,7 @@ export enum View {
 // const AnimatedTitle = WithAnimation(Title);
 const AnimatedSlideshow = WithAnimation(Slideshow);
 const AnimatedInvitation = WithAnimation(Invitation);
-const AnimatedNames = WithAnimation(Names);
+// const AnimatedNames = WithAnimation(Names);
 const AnimatedVerse = WithAnimation(Verse);
 const AnimatedDetails = WithAnimation(Details);
 const AnimatedForm = WithAnimation(Form);
@@ -36,6 +36,7 @@ const AnimatedCreditsButton = WithAnimation(CreditsButton);
 export function InvitationPage() {
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
+  const audioPlayerRef = useRef<{ playAudio: () => void }>(null);
 
   const [view, setView] = useState(View.Loading);
   const [data, setData] = useState<FormData | null>(null);
@@ -68,6 +69,11 @@ export function InvitationPage() {
       navigate('/org/defaultId');
     }
   }, [id, navigate]);
+
+  const handleEnvelopeClick = () => {
+    audioPlayerRef.current?.playAudio();
+    setView(View.Main);
+  };
 
   const renderContent = () => {
     return (
@@ -106,10 +112,10 @@ export function InvitationPage() {
       className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-band1-dark 
       scrollbar-track-band1-light overflow-x-hidden"
     >
-      <AudioPlayer />
+      <AudioPlayer ref={audioPlayerRef} />
 
       {view === View.Envelope ? (
-        <EnvelopeButton setView={setView} />
+        <EnvelopeButton setView={handleEnvelopeClick} />
       ) : (
         renderContent()
       )}
