@@ -95,7 +95,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
       <RadioButtonGroup
         idPrefix="coming1"
-        label="Vin"
+        label="Confirm prezența"
         options={[
           { label: 'Da', value: 'yes' },
           { label: 'Nu', value: 'no' },
@@ -109,7 +109,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
         <>
           <RadioButtonGroup
             idPrefix="menu1"
-            label="Meniu"
+            label="Preferință meniu"
             options={[
               { label: 'Standard', value: 'standard' },
               { label: 'Vegan', value: 'vegan' },
@@ -119,7 +119,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
             onChange={handleMenu1Change}
           />
 
-          <br />
+          <div className="h-2 my-bg-band2 mb-4 border-my_dark rounded-full" />
 
           <RadioButtonGroup
             idPrefix="coming2"
@@ -157,7 +157,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
               <RadioButtonGroup
                 idPrefix="menu2"
-                label="Meniu invitat"
+                label="Preferință meniu"
                 options={[
                   { label: 'Standard', value: 'standard' },
                   { label: 'Vegan', value: 'vegan' },

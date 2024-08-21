@@ -90,7 +90,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                   />
                 )}
 
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-8">
                   <button
                     type="submit"
                     hidden={!canModify}

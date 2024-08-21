@@ -41,7 +41,7 @@ const FormSingle: React.FC<FormSingleProps> = ({
 
       <RadioButtonGroup
         idPrefix="coming"
-        label="Vin"
+        label="Confirm prezența"
         options={[
           { label: 'Da', value: 'yes' },
           { label: 'Nu', value: 'no' },
@@ -54,7 +54,7 @@ const FormSingle: React.FC<FormSingleProps> = ({
       {isComing === 'yes' && (
         <RadioButtonGroup
           idPrefix="menu"
-          label="Meniu"
+          label="Preferință meniu"
           options={[
             { label: 'Standard', value: 'standard' },
             { label: 'Vegan', value: 'vegan' },

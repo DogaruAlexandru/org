@@ -54,7 +54,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
 
       <RadioButtonGroup
         idPrefix="coming1"
-        label="Vin"
+        label="Confirm prezența"
         options={[
           { label: 'Da', value: 'yes' },
           { label: 'Nu', value: 'no' },
@@ -67,7 +67,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
       {isComing1 === 'yes' && (
         <RadioButtonGroup
           idPrefix="menu1"
-          label="Meniu"
+          label="Preferință meniu"
           options={[
             { label: 'Standard', value: 'standard' },
             { label: 'Vegan', value: 'vegan' },
@@ -78,7 +78,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
         />
       )}
 
-      <br />
+      <div className="h-2 my-bg-band2 mb-4 border-my_dark rounded-full" />
 
       <div className="flex flex-col items-center mb-4">
         <div
@@ -93,7 +93,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
 
       <RadioButtonGroup
         idPrefix="coming2"
-        label="Vin"
+        label="Confirm prezența"
         options={[
           { label: 'Da', value: 'yes' },
           { label: 'Nu', value: 'no' },
@@ -106,7 +106,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
       {isComing2 === 'yes' && (
         <RadioButtonGroup
           idPrefix="menu2"
-          label="Meniu"
+          label="Preferință meniu"
           options={[
             { label: 'Standard', value: 'standard' },
             { label: 'Vegan', value: 'vegan' },
