@@ -70,23 +70,6 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
     }, 300);
   };
 
-  const validateUrl = (url: string) => {
-    try {
-      const parsedUrl = new URL(url);
-      return allowedDomains.includes(parsedUrl.hostname);
-    } catch (e) {
-      return false;
-    }
-  };
-
-  const handleRedirect = (url: string) => {
-    if (validateUrl(url)) {
-      window.location.href = url;
-    } else {
-      console.error('Invalid URL');
-    }
-  };
-
   return (
     <div
       className="flex justify-center items-center h-svh"
