@@ -13,15 +13,22 @@ const FormCouple: React.FC<FormCoupleProps> = ({
   canModify,
   updateFormData,
 }) => {
-  const [isComing1, setIsComing1] = useState(data.coming1 ? 'yes' : 'no');
-  const [menu1, setMenu1] = useState(data.menu1);
+  const [isComing1, setIsComing1] = useState(
+    data.coming1 === true ? 'yes' : data.coming1 === false ? 'no' : ''
+  );
+  const [menu1, setMenu1] = useState(data.menu1 || '');
 
-  const [isComing2, setIsComing2] = useState(data.coming2 ? 'yes' : 'no');
-  const [menu2, setMenu2] = useState(data.menu2);
+  const [isComing2, setIsComing2] = useState(
+    data.coming2 === true ? 'yes' : data.coming2 === false ? 'no' : ''
+  );
+  const [menu2, setMenu2] = useState(data.menu2 || '');
 
   const handleComing1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsComing1(event.target.value);
-    updateFormData({ coming1: event.target.value === 'yes' });
+    const value = event.target.value;
+    setIsComing1(value);
+    updateFormData({
+      coming1: value === 'yes' ? true : value === 'no' ? false : null,
+    });
   };
 
   const handleMenu1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,8 +37,11 @@ const FormCouple: React.FC<FormCoupleProps> = ({
   };
 
   const handleComing2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsComing2(event.target.value);
-    updateFormData({ coming2: event.target.value === 'yes' });
+    const value = event.target.value;
+    setIsComing2(value);
+    updateFormData({
+      coming2: value === 'yes' ? true : value === 'no' ? false : null,
+    });
   };
 
   const handleMenu2Change = (event: React.ChangeEvent<HTMLInputElement>) => {

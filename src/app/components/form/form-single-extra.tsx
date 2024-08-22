@@ -13,18 +13,29 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
   canModify,
   updateFormData,
 }) => {
-  const [isComing1, setIsComing1] = useState(data.coming1 ? 'yes' : 'no');
-  const [menu1, setMenu1] = useState(data.menu1);
+  const [isComing1, setIsComing1] = useState(
+    data.coming1 === true ? 'yes' : data.coming1 === false ? 'no' : ''
+  );
+  const [menu1, setMenu1] = useState(data.menu1 || '');
 
-  const [isComing2, setIsComing2] = useState(data.coming2 ? 'yes' : 'no');
-  const [name2, setName2] = useState(data.name2);
-  const [menu2, setMenu2] = useState(data.menu2);
+  const [isComing2, setIsComing2] = useState(
+    data.coming2 === true ? 'yes' : data.coming2 === false ? 'no' : ''
+  );
+  const [name2, setName2] = useState(data.name2 || '');
+  const [menu2, setMenu2] = useState(data.menu2 || '');
 
   const name2Ref = useRef<HTMLTextAreaElement>(null);
 
   const handleComing1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing1(event.target.value);
-    updateFormData({ coming1: event.target.value === 'yes' });
+    updateFormData({
+      coming1:
+        event.target.value === 'yes'
+          ? true
+          : event.target.value === 'no'
+          ? false
+          : null,
+    });
   };
 
   const handleMenu1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +45,14 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
 
   const handleComing2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsComing2(event.target.value);
-    updateFormData({ coming2: event.target.value === 'yes' });
+    updateFormData({
+      coming2:
+        event.target.value === 'yes'
+          ? true
+          : event.target.value === 'no'
+          ? false
+          : null,
+    });
   };
 
   const handleName2Change = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

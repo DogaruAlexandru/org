@@ -10,9 +10,9 @@ interface FormData {
   id: string;
   form_type: string;
   name1: string;
-  coming1: boolean;
+  coming1: boolean | null;
   menu1: string;
-  coming2: boolean;
+  coming2: boolean | null;
   name2: string;
   menu2: string;
 }

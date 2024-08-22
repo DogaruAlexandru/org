@@ -13,12 +13,17 @@ const FormSingle: React.FC<FormSingleProps> = ({
   canModify,
   updateFormData,
 }) => {
-  const [isComing, setIsComing] = useState(data.coming1 ? 'yes' : 'no');
+  const [isComing, setIsComing] = useState<string | null>(
+    data.coming1 === null ? null : data.coming1 ? 'yes' : 'no'
+  );
   const [menu, setMenu] = useState(data.menu1);
 
   const handleComingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsComing(event.target.value);
-    updateFormData({ coming1: event.target.value === 'yes' });
+    const value = event.target.value;
+    setIsComing(value);
+    updateFormData({
+      coming1: value === 'yes' ? true : value === 'no' ? false : null,
+    });
   };
 
   const handleMenuChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +51,7 @@ const FormSingle: React.FC<FormSingleProps> = ({
           { label: 'Da', value: 'yes' },
           { label: 'Nu', value: 'no' },
         ]}
-        selectedValue={isComing}
+        selectedValue={isComing || ''}
         canModify={canModify}
         onChange={handleComingChange}
       />
