@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 interface RadioButtonGroupProps {
   idPrefix: string;
@@ -21,28 +21,38 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   required = false,
   validationMessage = 'This field is required',
 }) => {
-  const firstRadioRef = useRef<HTMLInputElement | null>(null);
+  const radioRefs = useRef<HTMLInputElement[]>([]);
   const [isValid, setIsValid] = useState(true);
+
+  useEffect(() => {
+    if (selectedValue) {
+      setIsValid(true);
+      radioRefs.current.forEach((radio) => {
+        radio.setCustomValidity('');
+      });
+    }
+  }, [selectedValue]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsValid(true);
-    (event.target as HTMLInputElement).setCustomValidity('');
+    radioRefs.current.forEach((radio) => {
+      radio.setCustomValidity(''); // Clear validation messages for all radios
+    });
     onChange(event);
+  };
+
+  const handleInvalid = (event: React.InvalidEvent<HTMLInputElement>) => {
+    if (!selectedValue && required) {
+      radioRefs.current.forEach((radio) => {
+        radio.setCustomValidity(validationMessage);
+      });
+      setIsValid(false);
+    }
   };
 
   return (
     <div className="flex flex-col items-center mb-4">
-      <label
-        className="w-full"
-        onInvalid={(event) => {
-          if (!selectedValue && required && firstRadioRef.current) {
-            firstRadioRef.current.setCustomValidity(validationMessage);
-            setIsValid(false);
-          }
-        }}
-      >
-        {label}
-      </label>
+      <label className="w-full">{label}</label>
       <div className="flex justify-center w-full">
         {options.map((option, index) => (
           <div key={option.value} className="mx-3 hover:scale-125 duration-100">
@@ -50,7 +60,9 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
               {option.label}
             </label>
             <input
-              ref={index === 0 ? firstRadioRef : null}
+              ref={(el) => {
+                if (el) radioRefs.current[index] = el;
+              }}
               id={`${idPrefix}${option.value}`}
               name={idPrefix}
               type="radio"
@@ -58,13 +70,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
               checked={selectedValue === option.value}
               disabled={!canModify}
               onChange={handleChange}
-              onInvalid={(event) => {
-                if (!isValid) {
-                  (event.target as HTMLInputElement).setCustomValidity(
-                    validationMessage
-                  );
-                }
-              }}
+              onInvalid={handleInvalid}
               required={required}
               className="border-my_dark text-accent rounded-md w-6 h-6 shadow-sm 
               focus:outline-none focus:border-accent focus:ring focus:ring-accent"
