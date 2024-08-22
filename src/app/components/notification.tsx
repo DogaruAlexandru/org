@@ -104,7 +104,7 @@ const WrongUrlNotification: React.FC = () => {
         <h1>Bine ați venit la site-ul de invitații la nuntă</h1>
         <p>
           Vă rugăm să utilizați link-ul corect de invitație pentru a accesa
-          pagina de invitație.
+          pagina.
         </p>
       </Notification>
     </div>
