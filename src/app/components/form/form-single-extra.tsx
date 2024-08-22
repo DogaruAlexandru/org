@@ -122,7 +122,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
         canModify={canModify}
         onChange={handleComing1Change}
         required={true}
-        validationMessage="Please select an option"
+        validationMessage="Vă rugăm, alegeți o obțiune."
       />
 
       {isComing1 === 'yes' && (
@@ -152,7 +152,7 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
             canModify={canModify}
             onChange={handleComing2Change}
             required={true}
-            validationMessage="Please select an option"
+            validationMessage="Vă rugăm, alegeți o obțiune."
           />
 
           {isComing2 === 'yes' && (
