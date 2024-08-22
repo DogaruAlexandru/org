@@ -104,6 +104,7 @@ export function InvitationPage() {
                   <AnimatedDetails />
                   {data && <AnimatedForm data={data} />}
                   <AnimatedCreditsButton />
+                  <div className="h-10"></div>
                 </>
               );
             default:

@@ -9,7 +9,7 @@ function CreditsButton() {
   };
 
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-center">
       <button
         onClick={handleClick}
         className="my-bg-band1 px-6 py-1 rounded-full border-my_dark shadow-2xl
@@ -21,7 +21,7 @@ function CreditsButton() {
         className={`transition-opacity duration-300 ${
           showCredits ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ pointerEvents: showCredits ? 'auto' : 'none' }}
+        style={{ pointerEvents: showCredits ? 'auto' : 'none', zIndex: 9 }}
       >
         {showCredits && (
           <CreditsSection show={showCredits} setShow={setShowCredits} />
