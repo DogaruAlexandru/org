@@ -54,6 +54,8 @@ const FormSingle: React.FC<FormSingleProps> = ({
         selectedValue={isComing || ''}
         canModify={canModify}
         onChange={handleComingChange}
+        required={true}
+        validationMessage="Please select an option"
       />
 
       {isComing === 'yes' && (

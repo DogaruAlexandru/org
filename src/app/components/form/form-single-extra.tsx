@@ -121,6 +121,8 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
         selectedValue={isComing1}
         canModify={canModify}
         onChange={handleComing1Change}
+        required={true}
+        validationMessage="Please select an option"
       />
 
       {isComing1 === 'yes' && (
@@ -149,6 +151,8 @@ const FormSingleExtra: React.FC<FormSingleExtraProps> = ({
             selectedValue={isComing2}
             canModify={canModify}
             onChange={handleComing2Change}
+            required={true}
+            validationMessage="Please select an option"
           />
 
           {isComing2 === 'yes' && (
