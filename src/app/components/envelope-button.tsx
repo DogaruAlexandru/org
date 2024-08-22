@@ -38,34 +38,19 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
   useEffect(() => {
     const textTimer = setTimeout(() => {
       setButtonText('Apasă');
-      updateTextScale(); // Apply scale immediately when text appears
     }, 5000);
 
     return () => clearTimeout(textTimer);
   }, []);
 
-  const updateTextScale = () => {
-    if (imgRef.current && textRef.current) {
-      const imgHeight = imgRef.current.clientHeight;
-      const imgWidth = imgRef.current.clientWidth;
-      const textHeight = textRef.current.clientHeight;
-      const textWidth = textRef.current.clientWidth;
-
-      const desiredTextHeight = imgHeight / 5;
-      const desiredTextWidth = imgWidth / 5;
-
-      const heightScale = desiredTextHeight / textHeight;
-      const widthScale = desiredTextWidth / textWidth;
-
-      const scale = Math.min(heightScale, widthScale);
-      setTextScale(scale);
+  useEffect(() => {
+    if (buttonText) {
+      updateScale();
     }
-  };
+  }, [buttonText]);
 
   useEffect(() => {
-    updateTextScale();
-
-    const resizeObserver = new ResizeObserver(updateTextScale);
+    const resizeObserver = new ResizeObserver(updateScale);
     if (imgRef.current) {
       resizeObserver.observe(imgRef.current);
     }
@@ -128,7 +113,7 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
               className="animate-pulse my-bg-band4 font-dancing-script font-bold p-2 rounded-full border
                border-my_dark text-my_dark absolute text-3xl"
               style={{
-                transform: `scale(${textScale}) translateY(180%)`, // Adjust to move text slightly below the center
+                transform: `scale(${textScale}) translateY(160%)`,
               }}
             >
               {buttonText}
@@ -138,6 +123,24 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
       </div>
     </div>
   );
+
+  function updateScale() {
+    if (imgRef.current && textRef.current) {
+      const imgHeight = imgRef.current.clientHeight;
+      const imgWidth = imgRef.current.clientWidth;
+      const textHeight = textRef.current.clientHeight;
+      const textWidth = textRef.current.clientWidth;
+
+      const desiredTextHeight = imgHeight / 5;
+      const desiredTextWidth = imgWidth / 5;
+
+      const heightScale = desiredTextHeight / textHeight;
+      const widthScale = desiredTextWidth / textWidth;
+
+      const scale = Math.min(heightScale, widthScale);
+      setTextScale(scale);
+    }
+  }
 }
 
 export default EnvelopeButton;

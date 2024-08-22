@@ -8,9 +8,7 @@ import EnvelopeButton from './envelope-button';
 import Form from './form/form';
 import Slideshow from './image-slider/images-slideshow';
 import Invitation from './invitation';
-import Names from './names';
 import Verse from './verse';
-// import Title from './title';
 import WithAnimation from './animations/with-animation';
 import { NotificationSelector, NotificationType } from './notification';
 
@@ -24,10 +22,8 @@ export enum View {
 }
 
 // Wrap your components with the HOC
-// const AnimatedTitle = WithAnimation(Title);
 const AnimatedSlideshow = WithAnimation(Slideshow);
 const AnimatedInvitation = WithAnimation(Invitation);
-// const AnimatedNames = WithAnimation(Names);
 const AnimatedVerse = WithAnimation(Verse);
 const AnimatedDetails = WithAnimation(Details);
 const AnimatedForm = WithAnimation(Form);
@@ -79,8 +75,6 @@ export function InvitationPage() {
     return (
       <div style={{ display: 'none' }}>
         <AnimatedInvitation />
-        {/* <AnimatedTitle /> */}
-        {/* <AnimatedNames /> */}
         <AnimatedSlideshow />
         <AnimatedVerse />
         <AnimatedDetails />
@@ -92,7 +86,7 @@ export function InvitationPage() {
 
   const renderContent = () => {
     return (
-      <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32">
+      <div className="space-y-6 py-6 px-4 sm:py-8 sm:px-16 md:py-10 md:px-20 lg:py-12 lg:px-32 overflow-x-hidden">
         {(() => {
           switch (view) {
             case View.Loading:
@@ -105,8 +99,6 @@ export function InvitationPage() {
               return (
                 <>
                   <AnimatedInvitation />
-                  {/* <AnimatedTitle /> */}
-                  {/* <AnimatedNames /> */}
                   <AnimatedSlideshow />
                   <AnimatedVerse />
                   <AnimatedDetails />

@@ -33,7 +33,7 @@ function CreditsSection({ show, setShow }: CreditsSectionProps) {
     >
       <div
         className="my-bg-band4 shadow-lg rounded-lg border-2 border-my_dark text-center 
-      text-my_dark"
+      text-my_dark mx-4"
       >
         {/* Modal content */}
         <div className="relative rounded-lg shadow">
