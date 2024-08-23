@@ -6,7 +6,7 @@ interface TimeLeftProps {
 
 const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   const deadline = new Date('2025-01-02T00:00:00+03:00'); // New deadline date in Bucharest timezone
-  const deadlineText = `Modificabil până la: ${deadline.toLocaleDateString(
+  const deadlineText = `Confirmare până la: ${deadline.toLocaleDateString(
     'ro-RO'
   )}`;
   const [bgColor, setBgColor] = useState('');
