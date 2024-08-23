@@ -5,8 +5,8 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  base: '/org/',
-  cacheDir: './node_modules/.vite/org',
+  base: '/WeddingInvite/',
+  cacheDir: './node_modules/.vite/WeddingInvite',
 
   server: {
     port: 4200,
@@ -26,7 +26,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: './dist/org',
+    outDir: './dist/WeddingInvite',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
@@ -38,14 +38,14 @@ export default defineConfig({
     watch: false,
     globals: true,
     cache: {
-      dir: './node_modules/.vitest/org',
+      dir: './node_modules/.vitest/WeddingInvite',
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: './coverage/org',
+      reportsDirectory: './coverage/WeddingInvite',
       provider: 'v8',
     },
   },

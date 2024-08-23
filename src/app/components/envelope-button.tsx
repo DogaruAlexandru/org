@@ -37,7 +37,7 @@ function EnvelopeButton({ setView }: EnvelopeButtonProps) {
 
   useEffect(() => {
     const textTimer = setTimeout(() => {
-      setButtonText('Apasăsați');
+      setButtonText('Apăsați');
     }, 5000);
 
     return () => clearTimeout(textTimer);

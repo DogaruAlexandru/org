@@ -55,7 +55,7 @@ const FormSingle: React.FC<FormSingleProps> = ({
         canModify={canModify}
         onChange={handleComingChange}
         required={true}
-        validationMessage="Vă rugăm, alegeți o obțiune."
+        validationMessage="Vă rugăm, alegeți o opțiune."
       />
 
       {isComing === 'yes' && (
