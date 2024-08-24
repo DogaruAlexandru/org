@@ -1,7 +1,7 @@
 import DetailsSection from './details-section';
 
 import clock1 from '../../../assets/images/clock-one-svgrepo-com.svg';
-import clock4 from '../../../assets/images/clock-four-svgrepo-com.svg';
+import clock3 from '../../../assets/images/clock-three-svgrepo-com.svg';
 
 function Details() {
   return (
@@ -18,8 +18,8 @@ function Details() {
         <DetailsSection
           title="Festivitate nuntă"
           date="22 Februarie 2025"
-          time="16:00"
-          clock={clock4}
+          time="15:00"
+          clock={clock3}
           location="Trei Stejari - Brașov"
           mapLink="https://maps.app.goo.gl/rXaXLJ2k8xM6Durw7"
         />
