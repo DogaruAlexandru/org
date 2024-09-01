@@ -96,14 +96,14 @@ const Slideshow = () => {
     return images.map((img, index) => {
       let isVisible = false;
       switch (position) {
-        case 'left':
+        case 'right':
           isVisible =
             (index + images.length - 1) % images.length === currentIndex;
           break;
         case 'center':
           isVisible = index === currentIndex;
           break;
-        case 'right':
+        case 'left':
           isVisible = (index + 1) % images.length === currentIndex;
           break;
       }
