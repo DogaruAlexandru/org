@@ -8,7 +8,7 @@ function Details() {
     <div className="font-dancing-script text-center text-my_dark font-bold">
       <div className="flex flex-row flex-wrap place-content-center">
         <DetailsSection
-          title="Cununie religioasă"
+          title="Cununia religioasă"
           date="22 Februarie 2025"
           time="13:00"
           clock={clock1}
@@ -16,7 +16,7 @@ function Details() {
           mapLink="https://maps.app.goo.gl/oQJpzQLhgYQjoT346"
         />
         <DetailsSection
-          title="Festivitate nuntă"
+          title="Sărbătorirea nunții"
           date="22 Februarie 2025"
           time="15:00"
           clock={clock3}
