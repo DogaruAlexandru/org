@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 
 interface TimeLeftProps {
   setCanModify: React.Dispatch<React.SetStateAction<boolean>>;
+  dateLimit: Date | null;
 }
 
-const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
-  const deadline = new Date('2025-01-01T00:00:00+02:00'); // New deadline date in Bucharest timezone
+const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify, dateLimit }) => {
+  const deadline = dateLimit || new Date('2025-01-01T00:00:00+02:00');
   const deadlineText = `Confirmare până la: ${deadline.toLocaleDateString(
     'ro-RO',
     {
