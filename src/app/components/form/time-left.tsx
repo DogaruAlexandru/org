@@ -2,12 +2,16 @@ import { useState, useEffect } from 'react';
 
 interface TimeLeftProps {
   setCanModify: React.Dispatch<React.SetStateAction<boolean>>;
+  dateLimit: Date | null;
 }
 
-const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
-  const deadline = new Date('2025-01-02T00:00:00+03:00'); // New deadline date in Bucharest timezone
+const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify, dateLimit }) => {
+  const deadline = dateLimit || new Date('2025-01-01T00:00:00+02:00');
   const deadlineText = `Confirmare până la: ${deadline.toLocaleDateString(
-    'ro-RO'
+    'ro-RO',
+    {
+      timeZone: 'Europe/Bucharest',
+    }
   )}`;
   const [bgColor, setBgColor] = useState('');
   const [textColor, setTextColor] = useState('');
@@ -27,7 +31,7 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
         setCanModify(false);
         setTimeLeftText('Nu se mai poate modifica');
       } else {
-        setBgColor('my-bg-band3');
+        setBgColor('bg-bg');
         setTextColor('text-my_dark');
         setCanModify(true);
         setTimeLeftText('');
@@ -47,7 +51,7 @@ const TimeLeft: React.FC<TimeLeftProps> = ({ setCanModify }) => {
   return (
     <div className="flex justify-center text-center items-center flex-wrap mt-6 font-dancing-script">
       <div
-        className={`${bgColor} ${textColor} shadow-lg px-4 py-2 rounded-3xl text-xl border border-my_dark w-auto`}
+        className={`${bgColor} ${textColor} shadow-lg px-4 py-2 rounded-3xl text-xl border-my_dark w-auto`}
       >
         {deadlineText}
         <br />

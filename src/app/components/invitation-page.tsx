@@ -117,7 +117,7 @@ export function InvitationPage() {
 
   return (
     <div
-      className="h-svh overflow-y-auto scrollbar-thin scrollbar-thumb-band1-dark 
+      className="h-svh overflow-y-auto scrollbar scrollbar-thumb-band1-dark 
       scrollbar-track-band1-light overflow-x-hidden"
     >
       <AudioPlayer ref={audioPlayerRef} />

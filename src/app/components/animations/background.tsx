@@ -75,7 +75,7 @@ const Background: React.FC = () => {
           src: imageUrls[getRandomInt(0, imageUrls.length - 1)],
           speed: getRandomInt(10, 20),
           size: getRandomInt(minSize, maxSize),
-          opacity: Math.random() * 0.5 + 0.5,
+          opacity: Math.random() * 0.3 + 0.2,
           left: getRandomInt(-20, 100),
           rotation: getRandomInt(-360, 360),
         };

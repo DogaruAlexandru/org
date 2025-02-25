@@ -102,7 +102,7 @@ const Form: React.FC<FormProps> = ({ data }) => {
                 </div>
               </form>
             </div>
-            <TimeLeft setCanModify={setCanModify} />
+            <TimeLeft setCanModify={setCanModify} dateLimit={data.limit_date} />
           </div>
         );
       case SaveStatus.SaveInProgress:

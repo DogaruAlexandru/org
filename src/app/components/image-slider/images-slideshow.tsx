@@ -13,7 +13,7 @@ import { throttle } from 'lodash';
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const Slideshow = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [parentWidth, setParentWidth] = useState(0);
   const [parentHeight, setParentHeight] = useState<number>(0);
   const parentRef = useRef<HTMLDivElement>(null);
@@ -96,14 +96,14 @@ const Slideshow = () => {
     return images.map((img, index) => {
       let isVisible = false;
       switch (position) {
-        case 'left':
+        case 'right':
           isVisible =
             (index + images.length - 1) % images.length === currentIndex;
           break;
         case 'center':
           isVisible = index === currentIndex;
           break;
-        case 'right':
+        case 'left':
           isVisible = (index + 1) % images.length === currentIndex;
           break;
       }

@@ -73,7 +73,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
         canModify={canModify}
         onChange={handleComing1Change}
         required={true}
-        validationMessage="Vă rugăm, alegeți o obțiune."
+        validationMessage="Vă rugăm, alegeți o opțiune."
       />
 
       {isComing1 === 'yes' && (
@@ -114,7 +114,7 @@ const FormCouple: React.FC<FormCoupleProps> = ({
         canModify={canModify}
         onChange={handleComing2Change}
         required={true}
-        validationMessage="Vă rugăm, alegeți o obțiune."
+        validationMessage="Vă rugăm, alegeți o opțiune."
       />
 
       {isComing2 === 'yes' && (

@@ -20,8 +20,8 @@ module.exports = {
       colors: {
         'band1': {
           light: '#FEFEFE',
-          DEFAULT: '#E4CBC9',
-          dark: '#D2B8B5',
+          DEFAULT: '#DBCBC9',
+          dark: '#D7BDBA',
         },
         'band2': {
           light: '#FFFEFE',

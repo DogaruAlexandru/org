@@ -15,6 +15,7 @@ interface FormData {
   coming2: boolean | null;
   name2: string;
   menu2: string;
+  limit_date: Date | null;
 }
 
 // Fetch values by ID
@@ -27,6 +28,10 @@ async function fetchValuesById(id: string): Promise<FormData | null> {
   }
 
   if (data && data[0]) {
+    if (data[0].limit_date) {
+      data[0].limit_date = new Date(data[0].limit_date);
+    }
+
     return {
       id: data[0].id,
       form_type: data[0].form_type,
@@ -36,6 +41,7 @@ async function fetchValuesById(id: string): Promise<FormData | null> {
       coming2: data[0].coming2,
       name2: data[0].name2,
       menu2: data[0].menu2,
+      limit_date: data[0].limit_date,
     };
   }
 
@@ -66,7 +72,21 @@ async function writeValues(formData: FormData): Promise<boolean> {
     return false;
   }
 
-  return true;
+  if (response.data === 'time_restriction_failed') {
+    console.warn('Update failed due to time restriction.');
+    alert(
+      'Actualizarea nu a putut fi finalizată deoarece limita de timp a fost depășită.'
+    );
+    return false;
+  }
+
+  if (response.data === 'update_success') {
+    console.log('Update successful.');
+    return true;
+  }
+
+  console.error('Unexpected response:', response.data);
+  return false;
 }
 
 export { supabase, fetchValuesById, writeValues, FormData };

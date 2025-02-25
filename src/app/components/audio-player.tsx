@@ -36,6 +36,7 @@ const AudioPlayer = forwardRef((props, ref) => {
   const playAudio = () => {
     if (audioRef.current && !isPlaying) {
       setIsPlaying(true);
+      audioRef.current.volume = 0;
       audioRef.current
         .play()
         .then(() => fadeIn())
